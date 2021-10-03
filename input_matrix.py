@@ -116,7 +116,7 @@ class Matrix:
 
 def input_expression():
     # TODO(Mark): обработать все возможные ошибки
-    # TODO(Mark): решить проблему с методом __mul__ для int
+    # TODO(Mark): решить проблему с методом __mul__ для float
     string = input()
     string = string.upper()
     letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
@@ -125,6 +125,18 @@ def input_expression():
     for i in string:
         if i in letters:
             our_letters.append(i)
+
+    letters_for_replace = '+-*=_^!@#$%&()/'
+    string_new = string
+    for let in string:
+        if let in letters_for_replace or let in letters:
+            string_new = string_new.replace(let, '')
+
+    string_new = string_new.split(' ')
+    for i in string_new:
+        if i.isdigit():
+            string = string.replace(i, f'Int({i})')
+    print(string)
 
     for i in our_letters:
         rows = int(input(f'Введите количество строк матрицы {i}: '))
