@@ -1,4 +1,4 @@
-# from transpose_matrix import transposing
+from transpose_matrix import transposing
 
 
 def multi_num(mat, number):
@@ -98,9 +98,9 @@ class Matrix:
         assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
         return sub_mat(mat1=self.matrix, mat2=other.matrix)
 
-    # @property
-    # def trans(self):
-        # return transposing(mat=self.matrix)
+    @property
+    def trans(self):
+        return transposing(mat=self.matrix)
 
 
 # string = 'B * 5'
