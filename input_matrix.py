@@ -72,6 +72,15 @@ class Int(int):
             return multi_num(mat=other.matrix, number=self)
 
 
+class Float(float):
+    def __init__(self, number):
+        float.__init__(self)
+
+    def __mul__(self, other):
+        if isinstance(other, Matrix):
+            return multi_num(mat=other.matrix, number=self)
+
+
 class Matrix:
     def __init__(self, height, width, matrix):
         self.height = height
@@ -136,6 +145,13 @@ def input_expression():
     for i in string_new:
         if i.isdigit():
             string = string.replace(i, f'Int({i})')
+        else:
+            try:
+                float(i)
+            except ValueError:
+                continue
+            else:
+                string = string.replace(i, f'Float({i})')
     print(string)
 
     for i in our_letters:
