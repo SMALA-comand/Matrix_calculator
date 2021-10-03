@@ -1,6 +1,55 @@
 from transpose_matrix import transposing
 
 
+class Int(int):
+    def __init__(self, number):
+        int.__init__(self)
+
+    def __mul__(self, other):
+        if isinstance(other, Matrix):
+            return multi_num(mat=other.matrix, number=self)
+
+
+class Float(float):
+    def __init__(self, number):
+        float.__init__(self)
+
+    def __mul__(self, other):
+        if isinstance(other, Matrix):
+            return multi_num(mat=other.matrix, number=self)
+
+
+class Matrix:
+    def __init__(self, height, width, matrix):
+        self.height = height
+        self.width = width
+        self.matrix = matrix
+
+    def __mul__(self, other):
+        assert (isinstance(other, Matrix) or isinstance(other, int) or isinstance(other, float)), 'Не тот тип'
+        if isinstance(other, int):
+            return multi_num(mat=self.matrix, number=other)
+        if isinstance(other, float):
+            return multi_num(mat=self.matrix, number=other)
+        if isinstance(other, Matrix):
+            assert self.width == other.height, 'Разное кол-во столбцов левой матрица и кол-ва строк правой'
+            return multi_mat(mat1=self.matrix, mat2=other.matrix)
+
+    def __add__(self, other):
+        assert isinstance(other, Matrix), 'Вы используете не матрицу'
+        assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
+        return add_mat(mat1=self.matrix, mat2=other.matrix)
+
+    def __sub__(self, other):
+        assert isinstance(other, Matrix), 'Вы используете не матрицу'
+        assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
+        return sub_mat(mat1=self.matrix, mat2=other.matrix)
+
+    @property
+    def trans(self):
+        return transposing(mat=self.matrix)
+
+
 def multi_num(mat, number):
     """
     :param mat: матрица, которую собираемся умножать на число
@@ -63,69 +112,8 @@ def multi_mat(mat1, mat2):
     return res
 
 
-class Int(int):
-    def __init__(self, number):
-        int.__init__(self)
-
-    def __mul__(self, other):
-        if isinstance(other, Matrix):
-            return multi_num(mat=other.matrix, number=self)
-
-
-class Float(float):
-    def __init__(self, number):
-        float.__init__(self)
-
-    def __mul__(self, other):
-        if isinstance(other, Matrix):
-            return multi_num(mat=other.matrix, number=self)
-
-
-class Matrix:
-    def __init__(self, height, width, matrix):
-        self.height = height
-        self.width = width
-        self.matrix = matrix
-
-    def __mul__(self, other):
-        assert (isinstance(other, Matrix) or isinstance(other, int) or isinstance(other, float)), 'Не тот тип'
-        if isinstance(other, int):
-            return multi_num(mat=self.matrix, number=other)
-        if isinstance(other, float):
-            return multi_num(mat=self.matrix, number=other)
-        if isinstance(other, Matrix):
-            assert self.width == other.height, 'Разное кол-во столбцов левой матрица и кол-ва строк правой'
-            return multi_mat(mat1=self.matrix, mat2=other.matrix)
-
-    def __add__(self, other):
-        assert isinstance(other, Matrix), 'Вы используете не матрицу'
-        assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
-        return add_mat(mat1=self.matrix, mat2=other.matrix)
-
-    def __sub__(self, other):
-        assert isinstance(other, Matrix), 'Вы используете не матрицу'
-        assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
-        return sub_mat(mat1=self.matrix, mat2=other.matrix)
-
-    @property
-    def trans(self):
-        return transposing(mat=self.matrix)
-
-
-# string = 'B * 5'
-
-# A = Matrix(height=3, width=3, matrix=[[1, 2, 3],
-#                                       [4, 5, 6],
-#                                       [7, 8, 9]])
-# B = Matrix(height=4, width=3, matrix=[[5, 7, 6],
-#                                       [4, 3, 6],
-#                                       [7, 0, 9],
-#                                       [5, 5, 5]])
-
-
 def input_expression():
     # TODO(Mark): обработать все возможные ошибки
-    # TODO(Mark): решить проблему с методом __mul__ для float
     string = input()
     string = string.upper()
     letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
@@ -161,7 +149,7 @@ def input_expression():
         for r in range(rows):
             row = []
             for c in range(columns):
-                element = input(f'Введите элемент {r+1, c+1}: ')
+                element = input(f'Введите элемент {r + 1, c + 1}: ')
                 row.append(int(element))
             matrix.append(row)
 
