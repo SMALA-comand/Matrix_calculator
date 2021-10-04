@@ -50,7 +50,7 @@ class Matrix:
         return transposing(mat=self.matrix)
 
 
-def multi_num(mat, number):
+def multi_num(mat, number) -> Matrix:
     """
     :param mat: матрица, которую собираемся умножать на число
     :param number: число, на которое нужно умножить матрицу
@@ -61,7 +61,7 @@ def multi_num(mat, number):
     return Matrix(len(mat), len(mat[0]), mat)
 
 
-def add_mat(mat1, mat2):
+def add_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: первая матрица
     :param mat2: вторая матрица
@@ -72,7 +72,7 @@ def add_mat(mat1, mat2):
     return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
-def sub_mat(mat1, mat2):
+def sub_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: первая матрица
     :param mat2: вторая матрица
@@ -95,7 +95,7 @@ def get_column(mat, col: int) -> list:
     return res
 
 
-def multi_mat(mat1, mat2):
+def multi_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: левая матрица
     :param mat2: правая матрица
