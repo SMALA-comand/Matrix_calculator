@@ -25,6 +25,9 @@ class Matrix:
         self.width = width
         self.matrix = matrix
 
+#    def __str__(self):
+#        return(self.matrix)
+
     def __mul__(self, other):
         assert (isinstance(other, Matrix) or isinstance(other, int) or isinstance(other, float)), 'Не тот тип'
         if isinstance(other, int):
@@ -58,7 +61,7 @@ def multi_num(mat, number):
     """
     for row in range(len(mat)):
         mat[row] = list(map(lambda x: x * number, mat[row]))
-    return mat
+    return Matrix(len(mat), len(mat[0]), mat)
 
 
 def add_mat(mat1, mat2):
@@ -69,7 +72,7 @@ def add_mat(mat1, mat2):
     """
     for row in range(len(mat1)):
         mat1[row] = list(map(lambda x, y: x + y, mat1[row], mat2[row]))
-    return mat1
+    return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
 def sub_mat(mat1, mat2):
@@ -80,7 +83,7 @@ def sub_mat(mat1, mat2):
     """
     for row in range(len(mat1)):
         mat1[row] = list(map(lambda x, y: x - y, mat1[row], mat2[row]))
-    return mat1
+    return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
 def get_column(mat, col: int) -> list:
@@ -109,7 +112,7 @@ def multi_mat(mat1, mat2):
             numb = sum(multi_row_col)
             zaglushka.append(numb)
         res.append(zaglushka)
-    return res
+    return Matrix(len(res), len(res[0]),res)
 
 
 def input_expression():
@@ -130,6 +133,7 @@ def input_expression():
             string_new = string_new.replace(let, '')
 
     string_new = string_new.split(' ')
+    #print(string, string_new)
     for i in string_new:
         if i.isdigit():
             string = string.replace(i, f'Int({i})')
@@ -154,7 +158,7 @@ def input_expression():
             matrix.append(row)
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
-    return eval(string)
+    return eval(string).matrix
 
 
 print(input_expression())
