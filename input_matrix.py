@@ -157,7 +157,7 @@ def input_expression():
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
         print(exec(f'type({i})'))
-    return eval(string)
+    return eval(string).matrix
 
 
 print(input_expression())
