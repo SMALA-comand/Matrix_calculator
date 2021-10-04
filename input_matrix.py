@@ -130,7 +130,6 @@ def input_expression():
             string_new = string_new.replace(let, '')
 
     string_new = string_new.split(' ')
-    print(string_new)
     for i in string_new:
         if i.isdigit():
             string = string.replace(i, f'Int({i})')
@@ -156,7 +155,6 @@ def input_expression():
             matrix.append(row)
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
-        print(exec(f'type({i})'))
     return eval(string).matrix
 
 
