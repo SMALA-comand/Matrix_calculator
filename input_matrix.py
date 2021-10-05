@@ -1,6 +1,7 @@
 from transpose_matrix import *
 from matrix_generator import *
 from determinant import *
+from matrix_examples import *
 
 class Int(int):
     def __init__(self, number):
@@ -180,4 +181,4 @@ def input_expression():
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
     return eval(string).matrix
 
-
+print(input_expression())
