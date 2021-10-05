@@ -50,7 +50,7 @@ class Matrix:
         return transposing(mat=self.matrix)
 
 
-def multi_num(mat, number):
+def multi_num(mat, number) -> Matrix:
     """
     :param mat: матрица, которую собираемся умножать на число
     :param number: число, на которое нужно умножить матрицу
@@ -58,10 +58,10 @@ def multi_num(mat, number):
     """
     for row in range(len(mat)):
         mat[row] = list(map(lambda x: x * number, mat[row]))
-    return mat
+    return Matrix(len(mat), len(mat[0]), mat)
 
 
-def add_mat(mat1, mat2):
+def add_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: первая матрица
     :param mat2: вторая матрица
@@ -69,10 +69,10 @@ def add_mat(mat1, mat2):
     """
     for row in range(len(mat1)):
         mat1[row] = list(map(lambda x, y: x + y, mat1[row], mat2[row]))
-    return mat1
+    return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
-def sub_mat(mat1, mat2):
+def sub_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: первая матрица
     :param mat2: вторая матрица
@@ -80,7 +80,7 @@ def sub_mat(mat1, mat2):
     """
     for row in range(len(mat1)):
         mat1[row] = list(map(lambda x, y: x - y, mat1[row], mat2[row]))
-    return mat1
+    return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
 def get_column(mat, col: int) -> list:
@@ -95,7 +95,7 @@ def get_column(mat, col: int) -> list:
     return res
 
 
-def multi_mat(mat1, mat2):
+def multi_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: левая матрица
     :param mat2: правая матрица
@@ -109,7 +109,7 @@ def multi_mat(mat1, mat2):
             numb = sum(multi_row_col)
             zaglushka.append(numb)
         res.append(zaglushka)
-    return res
+    return Matrix(len(res), len(res[0]), res)
 
 
 def input_expression():
@@ -133,6 +133,7 @@ def input_expression():
     for i in string_new:
         if i.isdigit():
             string = string.replace(i, f'Int({i})')
+            print(string)
         else:
             try:
                 float(i)
@@ -154,7 +155,7 @@ def input_expression():
             matrix.append(row)
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
-    return eval(string)
+    return eval(string).matrix
 
 
 print(input_expression())
