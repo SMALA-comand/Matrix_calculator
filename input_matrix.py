@@ -116,6 +116,12 @@ def input_expression():
     # TODO(Mark): обработать все возможные ошибки
     string = input()
     string = string.upper()
+
+    # Нужно добавить режим ввода в легенду !
+    # Например: 1 - ввод каждого элемента с клавиатуры, 2  - набор стандартных матриц, 3 - генерация матрицы через csv файл 
+    mode  = int(input('Введите режим ввода: '))
+
+
     letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
                          'L', 'V', 'G', 'C', 'N', 'M', 'T', 'Q', 'U', 'B', 'Y', 'E', 'R'})
     our_letters = []
@@ -144,15 +150,39 @@ def input_expression():
     print(string)
 
     for i in our_letters:
-        rows = int(input(f'Введите количество строк матрицы {i}: '))
-        columns = int(input(f'Введите количество столбцов матрицы {i}: '))
-        matrix = []
-        for r in range(rows):
-            row = []
-            for c in range(columns):
-                element = input(f'Введите элемент {r + 1, c + 1}: ')
-                row.append(int(element))
-            matrix.append(row)
+        if mode  == 1: 
+            rows = int(input(f'Введите количество строк матрицы {i}: '))
+            columns = int(input(f'Введите количество столбцов матрицы {i}: '))
+            matrix = []
+            for r in range(rows):
+                row = []
+                for c in range(columns):
+                    element = input(f'Введите элемент {r + 1, c + 1}: ')
+                    row.append(int(element))
+                matrix.append(row)
+        elif mode == 3:
+            # Генерация рандомной csv и считывание по ней матрицы
+            import csv
+            import random as r
+
+            # Вводим наше кол-во строк и столбцов 
+            rows = int(input(f'Введите количество строк матрицы {i}: '))
+            columns = int(input(f'Введите количество столбцов матрицы {i}: '))
+            matrix = []
+
+
+            file = open("matrix.csv", encoding='utf-8',mode='w') 
+            file_writer = csv.writer(file, delimiter = ",", lineterminator="\r")
+            for i in range(rows):
+                file_writer.writerow([r.randint(-10000,10000) for i in range(columns)]) # Я решил генерировать только целые числа, думаю остальную ерунду ненадо 
+            file.close()
+
+            file = open("matrix.csv", encoding='utf-8',mode='r') 
+            read = csv.reader(file, delimiter = ",")
+
+            for r in read:
+                r = list(r)
+                matrix.append(r) 
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
     return eval(string).matrix
