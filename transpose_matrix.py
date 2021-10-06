@@ -48,17 +48,14 @@ def comparison(matrix):
     return a.transpose()
 
 for i in range(1, 1001): 
-    code_to_test = """
-        comparison(matrix_generator(i,i))
-    """
+    code_to_test = """comparison(matrix_generator(i,i)) """
     elapsed_time = timeit.timeit(code_to_test, number=100)/100
     time_np.append(elapsed_time)
 
-    code_to_test = """
-        transposing(matrix_generator(i,i))
-    """
+    code_to_test = """transposing(matrix_generator(i,i))"""
     elapsed_time = timeit.timeit(code_to_test, number=100)/100 
     time_our.append(elapsed_time)
+    
     size_m.append(i)
 
 fig, ax = plt.subplots()
