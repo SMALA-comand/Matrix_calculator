@@ -37,7 +37,7 @@ if __name__ == '__main__':
 # Сравнение скорости работы нашего транспонирования с numpy
 import numpy as np
 from matrix_generator import matrix_generator
-import timeit
+import time
 import matplotlib.pyplot as plt
 
 time_our = []
@@ -47,13 +47,16 @@ def comparison(matrix):
     a = np.array(matrix)
     return a.transpose()
 
-for i in range(1, 1001): 
-    code_to_test = """comparison(matrix_generator(i,i)) """
-    elapsed_time = timeit.timeit(code_to_test, number=100)/100
+for i in range(1, 1001):
+    m = matrix_generator(i,i)
+    time_start  = time.time()
+    comparison(m)
+    elapsed_time = time.time() - time_start
     time_np.append(elapsed_time)
 
-    code_to_test = """transposing(matrix_generator(i,i))"""
-    elapsed_time = timeit.timeit(code_to_test, number=100)/100 
+    time_start  = time.time()
+    transposing(m)
+    elapsed_time = time.time() - time_start
     time_our.append(elapsed_time)
     
     size_m.append(i)
