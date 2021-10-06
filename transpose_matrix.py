@@ -47,7 +47,7 @@ def comparison(matrix):
     a = np.array(matrix)
     return a.transpose()
 
-for i in range(1, 1001,10):
+for i in range(1, 501,10):
     m = matrix_generator(i,i)
     time_start  = time.time()
     comparison(m)
