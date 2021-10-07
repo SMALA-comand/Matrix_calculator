@@ -25,6 +25,9 @@ def compute_det(matrix) -> int:
     if len(matrix) == 2:
         print("exit")
         return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+    if len(matrix) == 3:
+        print('exit')
+        return matrix[0][0] * matrix[1][1] * matrix [2][2] + 
     else:
         # return sum([((-1)**j * matrix[0][j] * compute_det(get_matrix_minor(matrix, j))) for j in range(0, len(matrix))])
         print(matrix)
