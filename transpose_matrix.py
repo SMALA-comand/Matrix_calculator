@@ -43,19 +43,19 @@ import matplotlib.pyplot as plt
 time_our = []
 time_np = []
 size_m = [] # 1*1 , 2*2, 3*3, 4*4, 5*5,  и т.д.
-def comparison(matrix):
+def comparison(matrix): 
     a = np.array(matrix)
     return a.transpose()
 
 for i in range(1, 501,10):
     m = matrix_generator(i,i)
     time_start  = time.time()
-    comparison(m)
+    comparison(m)  # Траспонирование numpy
     elapsed_time = time.time() - time_start
     time_np.append(elapsed_time)
 
     time_start  = time.time()
-    transposing(m)
+    transposing(m)   # Наше транспонирование 
     elapsed_time = time.time() - time_start
     time_our.append(elapsed_time)
     
