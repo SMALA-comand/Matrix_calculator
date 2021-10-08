@@ -1,7 +1,5 @@
-from transpose_matrix import *
-from matrix_generator import *
-from determinant import *
-from matrix_examples import *
+from transpose_matrix import transposing
+
 
 class Int(int):
     def __init__(self, number):
@@ -26,9 +24,6 @@ class Matrix:
         self.height = height
         self.width = width
         self.matrix = matrix
-
-#    def __str__(self):
-#        return(self.matrix)
 
     def __mul__(self, other):
         assert (isinstance(other, Matrix) or isinstance(other, int) or isinstance(other, float)), 'Не тот тип'
@@ -55,7 +50,7 @@ class Matrix:
         return transposing(mat=self.matrix)
 
 
-def multi_num(mat, number):
+def multi_num(mat, number) -> Matrix:
     """
     :param mat: матрица, которую собираемся умножать на число
     :param number: число, на которое нужно умножить матрицу
@@ -66,7 +61,7 @@ def multi_num(mat, number):
     return Matrix(len(mat), len(mat[0]), mat)
 
 
-def add_mat(mat1, mat2):
+def add_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: первая матрица
     :param mat2: вторая матрица
@@ -77,7 +72,7 @@ def add_mat(mat1, mat2):
     return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
-def sub_mat(mat1, mat2):
+def sub_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: первая матрица
     :param mat2: вторая матрица
@@ -100,7 +95,7 @@ def get_column(mat, col: int) -> list:
     return res
 
 
-def multi_mat(mat1, mat2):
+def multi_mat(mat1, mat2) -> Matrix:
     """
     :param mat1: левая матрица
     :param mat2: правая матрица
@@ -114,13 +109,19 @@ def multi_mat(mat1, mat2):
             numb = sum(multi_row_col)
             zaglushka.append(numb)
         res.append(zaglushka)
-    return Matrix(len(res), len(res[0]),res)
+    return Matrix(len(res), len(res[0]), res)
 
 
 def input_expression():
     # TODO(Mark): обработать все возможные ошибки
     string = input()
     string = string.upper()
+
+    # Нужно добавить режим ввода в легенду !
+    # Например: 1 - ввод каждого элемента с клавиатуры, 2  - набор стандартных матриц, 3 - генерация матрицы через csv файл 
+    mode  = int(input('Введите режим ввода: '))
+
+
     letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
                          'L', 'V', 'G', 'C', 'N', 'M', 'T', 'Q', 'U', 'B', 'Y', 'E', 'R'})
     our_letters = []
@@ -135,10 +136,10 @@ def input_expression():
             string_new = string_new.replace(let, '')
 
     string_new = string_new.split(' ')
-    #print(string, string_new)
     for i in string_new:
         if i.isdigit():
             string = string.replace(i, f'Int({i})')
+            print(string)
         else:
             try:
                 float(i)
@@ -149,20 +150,7 @@ def input_expression():
     print(string)
 
     for i in our_letters:
-        print(f'''Каким образом Вы хотите ввести матрицу {i}?
-1 - вручную
-2 - сгенерировать случаным образом
-3 - взять имеющуюся матрицу''')
-        typ = None
-        while typ == None:
-            try:
-                typ = int(input())
-            except ValueError:
-                print('Введите число в правильном формате')
-                continue
-            if typ in (1, 2, 3):
-                break
-        if typ == 1:
+        if mode  == 1: 
             rows = int(input(f'Введите количество строк матрицы {i}: '))
             columns = int(input(f'Введите количество столбцов матрицы {i}: '))
             matrix = []
@@ -172,13 +160,32 @@ def input_expression():
                     element = input(f'Введите элемент {r + 1, c + 1}: ')
                     row.append(int(element))
                 matrix.append(row)
-        if typ == 2:
-            matrix = matrix_generator()
-        if typ == 3:
-            ##Пока разрабатывается
-            a = 1
+        elif mode == 3:
+            # Генерация рандомной csv и считывание по ней матрицы
+            import csv
+            import random as r
+
+            # Вводим наше кол-во строк и столбцов 
+            rows = int(input(f'Введите количество строк матрицы {i}: '))
+            columns = int(input(f'Введите количество столбцов матрицы {i}: '))
+            matrix = []
+
+
+            file = open("matrix.csv", encoding='utf-8',mode='w') 
+            file_writer = csv.writer(file, delimiter = ",", lineterminator="\r")
+            for i in range(rows):
+                file_writer.writerow([r.randint(-10000,10000) for i in range(columns)]) # Я решил генерировать только целые числа, думаю остальную ерунду ненадо 
+            file.close()
+
+            file = open("matrix.csv", encoding='utf-8',mode='r') 
+            read = csv.reader(file, delimiter = ",")
+
+            for r in read:
+                r = list(r)
+                matrix.append(r) 
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
     return eval(string).matrix
+
 
 print(input_expression())

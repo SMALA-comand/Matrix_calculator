@@ -18,4 +18,8 @@ def matrix_generator(n = 0, m = 0):
         file_writer.writerows(matrix)
     return(matrix)
 
+#<<<<<<< HEAD
 #print(matrix_generator(3, 3))
+#=======
+#print(matrix_generator(3, 3))
+#>>>>>>> origin/Artem_branch
