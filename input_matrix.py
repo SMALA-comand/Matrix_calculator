@@ -34,6 +34,8 @@ class Matrix:
             return multi_num(mat=self.matrix, number=other)
         if isinstance(other, float):
             return multi_num(mat=self.matrix, number=other)
+        if isinstance(other, complex):
+            return multi_num(mat=self.matrix, number=other)
         if isinstance(other, Matrix):
             if self.width != other.height:
                 print('Не совпадают размеры матриц при умножении их друг на друга'.upper())
@@ -173,7 +175,15 @@ def input_expression(t=1):
             # здесь будет вычленение всех комплексных чисел
             # ...
             # ...
-            string = string.upper()
+            letters_mod = ''.join(['A', 'P', 'O', 'X', 'K', 'F', 'S', 'H', 'Z', 'W', 'D',
+                                   'L', 'V', 'G', 'C', 'N', 'M', 'T', 'Q', 'U', 'B', 'Y', 'E', 'R'])
+            letters_mod = letters_mod.lower()
+            for i in string:
+                if i == 'i':
+                    string = string.replace(i, 'j')
+                elif i in letters_mod:
+                    string = string.replace(i, i.upper())
+
             letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
                                  'L', 'V', 'G', 'C', 'N', 'M', 'T', 'Q', 'U', 'B', 'Y', 'E', 'R'})
             our_letters = []
@@ -237,13 +247,22 @@ def input_expression(t=1):
                         for r in range(rows):
                             row = []
                             for c in range(columns):
-                                element = input(f'Введите элемент {r + 1, c + 1}: ')
-                                try:
-                                    float(element)
-                                except ValueError:
-                                    row.append(element)
+                                el = input(f'Введите элемент {r + 1, c + 1} матрицы {i}: ')
+                                if 'i' in el:
+                                    el = el.replace('i', 'j')
+                                    el = complex(el)
+                                elif 'j' in el:
+                                    el = complex(el)
+                                elif el.isdigit():
+                                    el = int(el)
                                 else:
-                                    row.append(float(element))
+                                    try:
+                                        float(el)
+                                    except ValueError:
+                                        pass
+                                    else:
+                                        el = float(el)
+                                row.append(el)
                             matrix.append(row)
                         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
 
@@ -281,61 +300,29 @@ def input_expression(t=1):
                 continue
             typ = True
 
-        print('Если хотите ввести числовую матрицу, то введите 1. Комплексную - 2. Любую другую - 3.')
-        typ = None
-        while typ is None:
-            try:
-                ans = int(input('Введите ответ: '))
-            except ValueError:
-                print('Введите корректные данные')
-                continue
-            if ans in (1, 2, 3):
-                break
-
         matrix = []
-        if ans == 1:
-            for i in range(n):
-                row = []
-                for j in range(m):
-                    typ = None
-                    while typ is None:
-                        try:
-                            el = float(input(f'Введите элемент {i+1, j+1}: '))
-                        except ValueError:
-                            print('Введите корректные данные')
-                            continue
-                        typ = True
-                    row.append(el)
-                matrix.append(row)
-            matrix = Matrix(n, m, matrix)
-            return matrix.trans
-
-        elif ans == 2:
-            for i in range(n):
-                row = []
-                for j in range(m):
-                    typ = None
-                    while typ is None:
-                        try:
-                            el = complex(input(f'Введите элемент {i+1, j+1}: '))
-                        except ValueError:
-                            print('Введите корректные данные')
-                            continue
-                        typ = True
-                    row.append(el)
-                matrix.append(row)
-            matrix = Matrix(n, m, matrix)
-            return matrix.trans
-
-        elif ans == 3:
-            for i in range(n):
-                row = []
-                for j in range(m):
-                    el = input(f'Введите элемент {i+1, j+1}: ')
-                    row.append(el)
-                matrix.append(row)
-            matrix = Matrix(n, m, matrix)
-            return matrix.trans
+        for i in range(n):
+            row = []
+            for j in range(m):
+                el = input()
+                if 'i' in el:
+                    el = el.replace('i', 'j')
+                    el = complex(el)
+                elif 'j' in el:
+                    el = complex(el)
+                elif el.isdigit():
+                    el = int(el)
+                else:
+                    try:
+                        float(el)
+                    except ValueError:
+                        el = str(el)
+                    else:
+                        el = float(el)
+                row.append(el)
+            matrix.append(row)
+        matrix = Matrix(n, m, matrix)
+        return matrix.trans
 
     elif t == 3:
         # детерминант
@@ -352,15 +339,25 @@ def input_expression(t=1):
         for i in range(n):
             row = []
             for j in range(n):
-                typ = None
-                while typ is None:
-                    try:
-                        el = float(input(f'Введите элемент {i+1, j+1}: '))
-                    except ValueError:
-                        print('Введите корректные данные')
-                        continue
-                    typ = True
+                flag = False
+                while not flag:
+                    el = input()
+                    if 'i' in el:
+                        el = el.replace('i', 'j')
+                        el = complex(el)
+                    elif 'j' in el:
+                        el = complex(el)
+                    elif el.isdigit():
+                        el = int(el)
+                    else:
+                        try:
+                            float(el)
+                        except ValueError:
+                            continue
+                        else:
+                            el = float(el)
                 row.append(el)
             matrix.append(row)
+
         matrix = Matrix(n, n, matrix)
         return matrix.det
