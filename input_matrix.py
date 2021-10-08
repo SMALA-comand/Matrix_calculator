@@ -187,7 +187,7 @@ def input_expression(t=1):
             try:
                 eval(string)
             except Exception:
-                print('Синтаксическая ошибка')
+                print('Синтаксическая ошибка'.upper())
                 continue
             # дальше заходим, если с выражением всё норм
             # теперь заменяем все 5 на Int(5)
@@ -260,6 +260,7 @@ def input_expression(t=1):
                 try:
                     eval(string)
                 except Exception:
+                    print('ВВЕДИТЕ МАТРИЦЫ ЗАНОВО!')
                     continue
                 else:
                     flag_for_matrix = True
