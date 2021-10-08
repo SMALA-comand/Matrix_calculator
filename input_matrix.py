@@ -104,7 +104,11 @@ def add_mat(mat1, mat2) -> Matrix:
     :return: результат поэлементного сложения левой и правой матриц
     """
     for row in range(len(mat1)):
-        mat1[row] = list(map(lambda x, y: x + y, mat1[row], mat2[row]))
+        try:
+            mat1[row] = list(map(lambda x, y: x + y, mat1[row], mat2[row]))
+        except TypeError:
+            print('В сложении матриц есть недопустимые операции!'.upper())
+            assert 1 == 2
     return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
@@ -115,7 +119,11 @@ def sub_mat(mat1, mat2) -> Matrix:
     :return: результат поэлементного вычитания второй матрицы из первой
     """
     for row in range(len(mat1)):
-        mat1[row] = list(map(lambda x, y: x - y, mat1[row], mat2[row]))
+        try:
+            mat1[row] = list(map(lambda x, y: x - y, mat1[row], mat2[row]))
+        except TypeError:
+            print('В вычитании матриц есть недопустимые операции!'.upper())
+            assert 1 == 2
     return Matrix(len(mat1), len(mat1[0]), mat1)
 
 
@@ -146,7 +154,11 @@ def multi_mat(mat1, mat2) -> Matrix:
             except TypeError:
                 print('При умножении матрицы на матрицу есть недопустимое перемножение элементов!'.upper())
                 assert 1 == 2
-            numb = sum(multi_row_col)
+            try:
+                numb = sum(multi_row_col)
+            except TypeError:
+                print('При сложении элементов в умножении матриц есть недопустимые операции!'.upper())
+                assert 1 == 2
             zaglushka.append(numb)
         res.append(zaglushka)
     return Matrix(len(res), len(res[0]), res)
