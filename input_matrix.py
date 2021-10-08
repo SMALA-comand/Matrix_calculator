@@ -254,4 +254,29 @@ def input_expression(t=1):
 
     elif t == 3:
         # детерминант
-        pass
+        typ = None
+        while typ is None:
+            try:
+                n = int(input('Введите кол-во строк матрицы: '))
+            except ValueError:
+                print('Введите корректные данные')
+                continue
+            typ = True
+
+        matrix = []
+        for i in range(n):
+            row = []
+            for j in range(n):
+                typ = None
+                while typ is None:
+                    try:
+                        el = float(input('Введите элемент: '))
+                    except ValueError:
+                        print('Введите корректные данные')
+                        continue
+                    typ = True
+                row.append(el)
+            matrix.append(row)
+        matrix = Matrix(n, n, matrix)
+        return matrix.det
+
