@@ -11,7 +11,7 @@ print('''Добро пожаловать в инструмент по работ
 typ = None
 while typ is None:
     try:
-        typ = int(input())
+        typ = int(input('Какой функционал требуется: '))
     except ValueError:
         print('Введите число в правильном формате')
         continue
@@ -27,7 +27,9 @@ if typ == 1:
 elif typ == 2:
     print('''Введите матрицу.
 Программа вернёт вам транспонированную матрицу''')
-    print(input_expression(t=2))
+    ans = input_expression(t=2)
+    for i in ans:
+        print(i)
 
 elif typ == 3:
     print('''Введите матрицу.

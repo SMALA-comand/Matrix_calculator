@@ -120,69 +120,107 @@ def multi_mat(mat1, mat2) -> Matrix:
 
 
 def input_expression(t=1):
-    # TODO(Mark): обработать все возможные ошибки
     if t == 1:
-        # матричное
-        string = input()
-        string = string.upper()
-        letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
-                             'L', 'V', 'G', 'C', 'N', 'M', 'T', 'Q', 'U', 'B', 'Y', 'E', 'R'})
-        our_letters = []
-        for i in string:
-            if i in letters:
-                our_letters.append(i)
+        flag_for_exp = None
+        while flag_for_exp is None:
+            string = input('Введите матричное выражение: ')
 
-        letters_for_replace = '+-*=_^!@#$%&()/'
-        string_new = string
-        for let in string:
-            if let in letters_for_replace or let in letters:
-                string_new = string_new.replace(let, '')
+            # здесь будет вычленение всех комплексных чисел
+            # ...
+            # ...
+            string = string.upper()
+            letters = frozenset({'I', 'A', 'P', 'O', 'X', 'K', 'J', 'F', 'S', 'H', 'Z', 'W', 'D',
+                                 'L', 'V', 'G', 'C', 'N', 'M', 'T', 'Q', 'U', 'B', 'Y', 'E', 'R'})
+            our_letters = []
+            for i in string:
+                if i in letters:
+                    our_letters.append(i)
 
-        string_new = string_new.split(' ')
-        for i in string_new:
-            if i.isdigit():
-                string = string.replace(i, f'Int({i})')
-                print(string)
-            else:
+            # сразу проверим правильность введенного выражения
+            for i in set(our_letters):
+                exec(f'{i} = 1')
+            try:
+                eval(string)
+            except:
+                print('Синтаксическая ошибка')
+                continue
+            # дальше заходим, если с выражением всё норм
+            # теперь заменяем все 5 на Int(5)
+
+            letters_for_replace = '+-*=_^!@#$%&()/'
+            string_new = string
+            for let in string:
+                if let in letters_for_replace or let in letters:
+                    string_new = string_new.replace(let, '')
+
+            string_new = string_new.split(' ')
+            for i in string_new:
+                if i.isdigit():
+                    string = string.replace(i, f'Int({i})')
+                else:
+                    try:
+                        float(i)
+                    except ValueError:
+                        continue
+                    else:
+                        string = string.replace(i, f'Float({i})')
+            print(string)
+
+            # самое главное - ввод матриц
+            flag_for_matrix = None
+            while flag_for_matrix is None:
+                for i in set(our_letters):
+                    print(f'''
+            Каким образом Вы хотите ввести матрицу {i}?
+            1 - вручную
+            2 - сгенерировать случайным образом
+            3 - взять имеющуюся матрицу''')
+                    typ = None
+                    while typ is None:
+                        try:
+                            typ = int(input())
+                        except ValueError:
+                            print('Введите число в правильном формате')
+                            continue
+                        if typ in (1, 2, 3):
+                            break
+
+                    if typ == 1:
+                        rows = int(input(f'Введите количество строк матрицы {i}: '))
+                        columns = int(input(f'Введите количество столбцов матрицы {i}: '))
+                        matrix = []
+                        for r in range(rows):
+                            row = []
+                            for c in range(columns):
+                                element = input(f'Введите элемент {r + 1, c + 1}: ')
+                                try:
+                                    float(element)
+                                except ValueError:
+                                    row.append(element)
+                                else:
+                                    row.append(float(element))
+                            matrix.append(row)
+                        exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
+
+                    elif typ == 2:
+                        rows = int(input(f'Введите количество строк матрицы {i}: '))
+                        columns = int(input(f'Введите количество столбцов матрицы {i}: '))
+                        matrix = matrix_generator(rows, columns)
+                        exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
+
+                    elif typ == 3:
+                        # Пока разрабатывается
+                        pass
+
                 try:
-                    float(i)
-                except ValueError:
+                    eval(string)
+                except Exception:
                     continue
                 else:
-                    string = string.replace(i, f'Float({i})')
-        print(string)
+                    flag_for_matrix = True
 
-        for i in our_letters:
-            print(f'''Каким образом Вы хотите ввести матрицу {i}?
-    1 - вручную
-    2 - сгенерировать случаным образом
-    3 - взять имеющуюся матрицу''')
-            typ = None
-            while typ == None:
-                try:
-                    typ = int(input())
-                except ValueError:
-                    print('Введите число в правильном формате')
-                    continue
-                if typ in (1, 2, 3):
-                    break
-            if typ == 1:
-                rows = int(input(f'Введите количество строк матрицы {i}: '))
-                columns = int(input(f'Введите количество столбцов матрицы {i}: '))
-                matrix = []
-                for r in range(rows):
-                    row = []
-                    for c in range(columns):
-                        element = input(f'Введите элемент {r + 1, c + 1}: ')
-                        row.append(int(element))
-                    matrix.append(row)
-            if typ == 2:
-                matrix = matrix_generator()
-            if typ == 3:
-                ##Пока разрабатывается
-                a = 1
+            flag_for_exp = True
 
-            exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
         return eval(string).matrix
 
     elif t == 2:
@@ -205,7 +243,8 @@ def input_expression(t=1):
             except ValueError:
                 print('Введите корректные данные')
                 continue
-            typ = True
+            if ans in (1, 2, 3):
+                break
 
         matrix = []
         if ans == 1:
@@ -215,7 +254,7 @@ def input_expression(t=1):
                     typ = None
                     while typ is None:
                         try:
-                            el = int(input('Введите элемент: '))
+                            el = float(input(f'Введите элемент {i+1, j+1}: '))
                         except ValueError:
                             print('Введите корректные данные')
                             continue
@@ -232,7 +271,7 @@ def input_expression(t=1):
                     typ = None
                     while typ is None:
                         try:
-                            el = complex(input('Введите элемент: '))
+                            el = complex(input(f'Введите элемент {i+1, j+1}: '))
                         except ValueError:
                             print('Введите корректные данные')
                             continue
@@ -242,11 +281,11 @@ def input_expression(t=1):
             matrix = Matrix(n, m, matrix)
             return matrix.trans
 
-        elif ans == 2:
+        elif ans == 3:
             for i in range(n):
                 row = []
                 for j in range(m):
-                    el = input('Введите элемент')
+                    el = input(f'Введите элемент {i+1, j+1}: ')
                     row.append(el)
                 matrix.append(row)
             matrix = Matrix(n, m, matrix)
@@ -270,7 +309,7 @@ def input_expression(t=1):
                 typ = None
                 while typ is None:
                     try:
-                        el = float(input('Введите элемент: '))
+                        el = float(input(f'Введите элемент {i+1, j+1}: '))
                     except ValueError:
                         print('Введите корректные данные')
                         continue
@@ -279,4 +318,3 @@ def input_expression(t=1):
             matrix.append(row)
         matrix = Matrix(n, n, matrix)
         return matrix.det
-
