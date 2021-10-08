@@ -1,7 +1,14 @@
 from copy import deepcopy
-from transpose_matrix import get_col
 
-def get_matrix_minor(mat, column, row=0):
+dict = {}
+
+def matr_to_string(matrix):
+    s = ""
+    for row in matrix:
+        for i in range(0, len(matrix)):
+            s += str(row[i])
+    return s
+def get_matrix_minor(mat, column = 0, row= 0):
     """
     :param row: строка, от которой избавляемся. По дефолту равна 0
     :param mat: матрица, для которой нужно посчитать минор
@@ -60,41 +67,35 @@ def compute_det(matrix) -> int:
     if (len(matrix) == 1):
         return matrix[0][0]
     #У другой группы слышал нюанс, что выход осуществлять только при матрице размера 1x1. Думаю оставим всё как есть, а если попрост, быстро поменяем
-    if len(matrix) == 2 and len(matrix[0]) == 2:
-        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-    elif len(matrix) == 3 and len(matrix[0]) == 3:
-        return matrix[0][0] * matrix[1][1] * matrix [2][2] + matrix[0][1] * matrix[1][2] * matrix[2][0] + matrix[0][2] * matrix[1][0] * matrix[2][1] - matrix[0][2] * matrix[1][1] * matrix[2][0] - matrix[0][0] * matrix[1][2] * matrix[2][1] - matrix[0][1] * matrix[1][0] * matrix[2][2] 
+    #if len(matrix) == 2 and len(matrix[0]) == 2:
+    #    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+    #elif len(matrix) == 3 and len(matrix[0]) == 3:
+    #    return matrix[0][0] * matrix[1][1] * matrix [2][2] + matrix[0][1] * matrix[1][2] * matrix[2][0] + matrix[0][2] * matrix[1][0] * matrix[2][1] - matrix[0][2] * matrix[1][1] * matrix[2][0] - matrix[0][0] * matrix[1][2] * matrix[2][1] - matrix[0][1] * matrix[1][0] * matrix[2][2]
     else:
         # return sum([((-1)**j * matrix[0][j] * compute_det(get_matrix_minor(matrix, j))) for j in range(0, len(matrix))])
         count = 0
         plan = []
-        count_0 = [0,sum([abs(matrix[0][i]) for i in range(0, len(matrix[0]))]),0]  # Счётчик оптимизации с наибольшим чилом нулей и наименьшем модулем коэфициентов (Только для строки!)
-        k = 0   #  Счётчик строки
-        for stroka in matrix:
-            if count_0[0] < stroka.count(0):
-                count_0[0] = stroka.count(0)
-                count_0[2] = k
 
-            elif count_0[0] == stroka.count(0):
-                cur_sum = sum([abs(stroka[i]) for i in range(0, len(matrix[k]))])
-                if  cur_sum <= count_0[1]:
-                    count_0[1] = cur_sum
-                    count_0[2] = k
-            k +=1
-        
-        for item in matrix[count_0[2]]:
-            plan.append((-1) ** count * item * compute_det(get_matrix_minor(matrix, count,row = count_0[2])))
-            count += 1
-            print(plan, count, len(matrix))
-        return sum(plan)
+        best_num, dim = find_best_var(matrix)
+        if dim == 0:
+            for item in matrix[best_num]:
+                plan.append((-1) ** (count + best_num) * item * compute_det(get_matrix_minor(matrix, count,row = best_num)))
+                count += 1
+                print(plan, best_num, "row", count, matrix)
+        else:
+            for item in range (len(matrix)):
+                plan.append((-1) ** (best_num + item) * matrix[item][best_num] * compute_det(get_matrix_minor(matrix, column = best_num,row = item)))
+                print(plan, item, "col", best_num, matrix)
+        dict[matr_to_str(matrix)] = sum(plan)
+        return dict[matr_to_str(matrix)]
 
 
 if __name__ == '__main__':
-    print(compute_det(matrix=[[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]]))
+    print(compute_det(matrix=[[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]]), "э")
     # print(get_matrix_minor(mat=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], column=0))
 
 def numpy_linalg_det(matrix):
     import numpy
     return numpy.linalg.det(matrix)
 
-numpy_linalg_det([[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]])
+#numpy_linalg_det([[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]])
