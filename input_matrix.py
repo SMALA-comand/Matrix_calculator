@@ -346,6 +346,11 @@ def input_expression(t=1):
                         el = el.replace('i', 'j')
                         el = complex(el)
                     elif 'j' in el:
+                        s_t = el.split(' ')
+
+                        prom = el[:el.find('j') + 1]
+                        if prom != el:
+                            el = s_t[2] + s_t[1] + s_t[0]
                         el = complex(el)
                     elif el.isdigit():
                         el = int(el)
