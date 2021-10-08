@@ -35,30 +35,47 @@ class Matrix:
         if isinstance(other, float):
             return multi_num(mat=self.matrix, number=other)
         if isinstance(other, Matrix):
-            assert self.width == other.height, 'Разное кол-во столбцов левой матрица и кол-ва строк правой'
-            return multi_mat(mat1=self.matrix, mat2=other.matrix)
+            if self.width != other.height:
+                print('Не совпадают размеры матриц при умножении их друг на друга'.upper())
+                assert self.width == other.height, 'Разное кол-во столбцов левой матрица и кол-ва строк правой'
+            else:
+                return multi_mat(mat1=self.matrix, mat2=other.matrix)
 
     def __add__(self, other):
-        assert isinstance(other, Matrix), 'Вы используете не матрицу'
-        assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
-        return add_mat(mat1=self.matrix, mat2=other.matrix)
+        if not isinstance(other, Matrix):
+            print('Вы складываете матрицу не с матрицей!'.upper())
+            assert isinstance(other, Matrix), 'Вы используете не матрицу'
+        if not (self.height == other.height and self.width == other.width):
+            print('Матрицы при сложении имеют разные размеры!'.upper())
+            assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
+        else:
+            return add_mat(mat1=self.matrix, mat2=other.matrix)
 
     def __sub__(self, other):
-        assert isinstance(other, Matrix), 'Вы используете не матрицу'
-        assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
-        return sub_mat(mat1=self.matrix, mat2=other.matrix)
+        if not isinstance(other, Matrix):
+            print('Вы складываете матрицу не с матрицей!'.upper())
+            assert isinstance(other, Matrix), 'Вы используете не матрицу'
+        if not (self.height == other.height and self.width == other.width):
+            print('Матрицы при сложении имеют разные размеры!'.upper())
+            assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
+        else:
+            return sub_mat(mat1=self.matrix, mat2=other.matrix)
 
     def __truediv__(self, other):
-        print('Нельзя делить матрицы друг на друга или на число!')
+        print('Нельзя делить матрицы друг на друга или на число!'.upper())
+        assert 1 == 2
 
     def __pow__(self, power, modulo=None):
-        print('Нельзя возводить матрицу в степень')
+        print('Нельзя возводить матрицу в степень'.upper())
+        assert 1 == 2
 
     def __floordiv__(self, other):
-        print('Нельзя делить матрицы друг на друга или на число!')
+        print('Нельзя делить матрицы друг на друга или на число!'.upper())
+        assert 1 == 2
 
     def __mod__(self, other):
-        print('Нельзя делить матрицы друг на друга или на число!')
+        print('Нельзя делить матрицы друг на друга или на число!'.upper())
+        assert 1 == 2
 
     @property
     def trans(self):
