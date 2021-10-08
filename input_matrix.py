@@ -1,5 +1,7 @@
-from transpose_matrix import transposing
-
+from transpose_matrix import *
+from matrix_generator import *
+from determinant import *
+from matrix_examples import *
 
 class Int(int):
     def __init__(self, number):
@@ -144,18 +146,36 @@ def input_expression():
     print(string)
 
     for i in our_letters:
-        rows = int(input(f'Введите количество строк матрицы {i}: '))
-        columns = int(input(f'Введите количество столбцов матрицы {i}: '))
-        matrix = []
-        for r in range(rows):
-            row = []
-            for c in range(columns):
-                element = input(f'Введите элемент {r + 1, c + 1}: ')
-                row.append(int(element))
-            matrix.append(row)
+        print(f'''Каким образом Вы хотите ввести матрицу {i}?
+1 - вручную
+2 - сгенерировать случаным образом
+3 - взять имеющуюся матрицу''')
+        typ = None
+        while typ == None:
+            try:
+                typ = int(input())
+            except ValueError:
+                print('Введите число в правильном формате')
+                continue
+            if typ in (1, 2, 3):
+                break
+        if typ == 1:
+            rows = int(input(f'Введите количество строк матрицы {i}: '))
+            columns = int(input(f'Введите количество столбцов матрицы {i}: '))
+            matrix = []
+            for r in range(rows):
+                row = []
+                for c in range(columns):
+                    element = input(f'Введите элемент {r + 1, c + 1}: ')
+                    row.append(int(element))
+                matrix.append(row)
+        if typ == 2:
+            matrix = matrix_generator()
+        if typ == 3:
+            ##Пока разрабатывается
+            a = 1
 
         exec(f'{i} = Matrix({rows}, {columns}, {matrix})')
     return eval(string).matrix
-
 
 print(input_expression())
