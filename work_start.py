@@ -1,5 +1,6 @@
-from input_matrix import *
-#Легенда данной программы
+from input_matrix import input_expression
+
+# Легенда данной программы
 
 print('''Добро пожаловать в инструмент по работе с матрицами!
 На данный момент поддерживаются следующие операции:
@@ -8,9 +9,9 @@ print('''Добро пожаловать в инструмент по работ
 3)Вычислить определитель матрицы''')
 
 typ = None
-while typ == None:
+while typ is None:
     try:
-        typ = int(input())
+        typ = int(input('Какой функционал требуется: '))
     except ValueError:
         print('Введите число в правильном формате')
         continue
@@ -21,18 +22,17 @@ if typ == 1:
     print('''Введите выражение, с использованием матриц.
 В качестве обозначения можно использовать любую заглавную латинскую букву.
 Поддерживаются операции сложения, вычитания, умножения матриц, а также умножение матрицы на число''')
-    print(input_expression())
-else:
-    rows = int(input(f'Введите количество строк матрицы (n): '))
-    columns = int(input(f'Введите количество столбцов матрицы (m): '))
-    matrix = []
-    for r in range(rows):
-        row = []
-        for c in range(columns):
-            element = input(f'Введите элемент {r + 1, c + 1}: ')
-            row.append(int(element))
-        matrix.append(row)
-    if typ == 2:
-        print(transposing(matrix))
-    if typ == 3:
-        print(compute_det(matrix))
+    print(input_expression(t=1))
+
+elif typ == 2:
+    print('''Введите матрицу.
+Программа вернёт вам транспонированную матрицу''')
+    ans = input_expression(t=2)
+    for i in ans:
+        print(i)
+
+elif typ == 3:
+    print('''Введите матрицу.
+Программа вернёт вам определитель этой матрицы''')
+    print(input_expression(t=3))
+

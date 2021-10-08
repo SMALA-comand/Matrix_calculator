@@ -1,10 +1,12 @@
 import random as ra
 import csv
+
+
 def matrix_generator(n = 0, m = 0):
     if n == m == 0:
-        print('Введите количество строк (n):')
+        print('Введите количество строк (n): ')
         n = int(input())
-        print('Введите количество строк (m):')
+        print('Введите количество строк (m): ')
         m = int(input())
 
     matrix = []
@@ -18,8 +20,4 @@ def matrix_generator(n = 0, m = 0):
         file_writer.writerows(matrix)
     return(matrix)
 
-#<<<<<<< HEAD
 #print(matrix_generator(3, 3))
-#=======
-#print(matrix_generator(3, 3))
-#>>>>>>> origin/Artem_branch
