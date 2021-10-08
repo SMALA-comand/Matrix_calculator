@@ -141,7 +141,11 @@ def multi_mat(mat1, mat2) -> Matrix:
     for row in range(0, len(mat1)):
         zaglushka = []
         for col in range(0, len(mat2[0])):
-            multi_row_col = list(map(lambda x, y: x * y, mat1[row], get_column(mat=mat2, col=col)))
+            try:
+                multi_row_col = list(map(lambda x, y: x * y, mat1[row], get_column(mat=mat2, col=col)))
+            except TypeError:
+                print('При умножении матрицы на матрицу есть недопустимое перемножение элементов!'.upper())
+                assert 1 == 2
             numb = sum(multi_row_col)
             zaglushka.append(numb)
         res.append(zaglushka)
@@ -170,7 +174,7 @@ def input_expression(t=1):
                 exec(f'{i} = 1')
             try:
                 eval(string)
-            except:
+            except Exception:
                 print('Синтаксическая ошибка')
                 continue
             # дальше заходим, если с выражением всё норм
@@ -244,7 +248,6 @@ def input_expression(t=1):
                 try:
                     eval(string)
                 except Exception:
-                    print(Exception)
                     continue
                 else:
                     flag_for_matrix = True
