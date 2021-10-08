@@ -29,7 +29,7 @@ class Matrix:
         self.matrix = matrix
 
     def __mul__(self, other):
-        assert (isinstance(other, Matrix) or isinstance(other, int) or isinstance(other, float)), 'Не тот тип'
+        assert (isinstance(other, Matrix) or isinstance(other, int) or isinstance(other, float) or isinstance(other, complex)), 'Не тот тип'
         if isinstance(other, int):
             return multi_num(mat=self.matrix, number=other)
         if isinstance(other, float):
