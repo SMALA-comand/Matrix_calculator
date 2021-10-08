@@ -48,6 +48,18 @@ class Matrix:
         assert (self.height == other.height and self.width == other.width), 'Разные длины/высоты'
         return sub_mat(mat1=self.matrix, mat2=other.matrix)
 
+    def __truediv__(self, other):
+        print('Нельзя делить матрицы друг на друга или на число!')
+
+    def __pow__(self, power, modulo=None):
+        print('Нельзя возводить матрицу в степень')
+
+    def __floordiv__(self, other):
+        print('Нельзя делить матрицы друг на друга или на число!')
+
+    def __mod__(self, other):
+        print('Нельзя делить матрицы друг на друга или на число!')
+
     @property
     def trans(self):
         return transposing(mat=self.matrix)
@@ -154,7 +166,7 @@ def input_expression(t=1):
                     string_new = string_new.replace(let, '')
 
             string_new = string_new.split(' ')
-            for i in string_new:
+            for i in set(string_new):
                 if i.isdigit():
                     string = string.replace(i, f'Int({i})')
                 else:
@@ -215,6 +227,7 @@ def input_expression(t=1):
                 try:
                     eval(string)
                 except Exception:
+                    print(Exception)
                     continue
                 else:
                     flag_for_matrix = True
