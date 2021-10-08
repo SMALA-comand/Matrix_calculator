@@ -304,7 +304,7 @@ def input_expression(t=1):
         for i in range(n):
             row = []
             for j in range(m):
-                el = input()
+                el = input(f'Введите элемент ({i}, {j}):')
                 if 'i' in el:
                     el = el.replace('i', 'j')
                     el = complex(el)
@@ -341,7 +341,7 @@ def input_expression(t=1):
             for j in range(n):
                 flag = False
                 while not flag:
-                    el = input()
+                    el = input(f'Введите элемент ({i}, {j}): ')
                     if 'i' in el:
                         el = el.replace('i', 'j')
                         el = complex(el)
@@ -356,6 +356,7 @@ def input_expression(t=1):
                             continue
                         else:
                             el = float(el)
+                    flag = True
                 row.append(el)
             matrix.append(row)
 
