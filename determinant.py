@@ -39,7 +39,7 @@ def find_best_var(matrix):
 
     #поиск по столбцу
     count_0_col = [0, sum([abs(matrix[i][0]) for i in range(0, len(matrix[0]))]), 0]  # Счётчик оптимизации с наибольшим чилом нулей и наименьшем модулем коэфициентов (Только для строки!)
-    for i in range(0, len(matrix)):
+    for i in range(1, len(matrix)):
         stolb = [matrix[j][i] for j in range(0, len(matrix))]
         if count_0_col[0] < stolb.count(0):
             count_0_col[0] = stolb.count(0)
@@ -51,13 +51,13 @@ def find_best_var(matrix):
                 count_0_col[1] = cur_sum
                 count_0_col[2] = i
 
-        if count_0_row[0] > count_0_col[0]:
-            return(count_0_row[2], 0)
-        elif count_0_row[0] < count_0_col[0]:
-            return(count_0_col[2], 1)
-        elif count_0_row[1] > count_0_col[1]:
-            return(count_0_col[2], 1)
-        return (count_0_row[2], 0)
+    if count_0_row[0] > count_0_col[0]:
+        return(count_0_row[2], 0)
+    elif count_0_row[0] < count_0_col[0]:
+        return(count_0_col[2], 1)
+    elif count_0_row[1] > count_0_col[1]:
+        return(count_0_col[2], 1)
+    return (count_0_row[2], 0)
 
 def compute_det(matrix) -> int:
     """
@@ -72,7 +72,9 @@ def compute_det(matrix) -> int:
     #elif len(matrix) == 3 and len(matrix[0]) == 3:
     #    return matrix[0][0] * matrix[1][1] * matrix [2][2] + matrix[0][1] * matrix[1][2] * matrix[2][0] + matrix[0][2] * matrix[1][0] * matrix[2][1] - matrix[0][2] * matrix[1][1] * matrix[2][0] - matrix[0][0] * matrix[1][2] * matrix[2][1] - matrix[0][1] * matrix[1][0] * matrix[2][2]
     else:
-        # return sum([((-1)**j * matrix[0][j] * compute_det(get_matrix_minor(matrix, j))) for j in range(0, len(matrix))])
+        s = matr_to_string(matrix)
+        if dict.get(s) != None:
+            return dict[s]
         count = 0
         plan = []
 
@@ -81,17 +83,18 @@ def compute_det(matrix) -> int:
             for item in matrix[best_num]:
                 plan.append((-1) ** (count + best_num) * item * compute_det(get_matrix_minor(matrix, count,row = best_num)))
                 count += 1
-                print(plan, best_num, "row", count, matrix)
+                #print(plan, best_num, "row", count, matrix)
         else:
             for item in range (len(matrix)):
                 plan.append((-1) ** (best_num + item) * matrix[item][best_num] * compute_det(get_matrix_minor(matrix, column = best_num,row = item)))
-                print(plan, item, "col", best_num, matrix)
-        dict[matr_to_str(matrix)] = sum(plan)
-        return dict[matr_to_str(matrix)]
+                #print(plan, item, "col", best_num, matrix)
+        a = sum(plan)
+        dict[matr_to_string(matrix)] = a
+        return a
 
 
 if __name__ == '__main__':
-    print(compute_det(matrix=[[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]]), "э")
+    print(compute_det(matrix=[[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]]))
     # print(get_matrix_minor(mat=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], column=0))
 
 def numpy_linalg_det(matrix):
