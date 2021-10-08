@@ -43,9 +43,9 @@ def compute_det(matrix) -> int:
                     count_0[1] = abs(sum(stroka))
                     count_0[2] = k
             k +=1
-
+        
         for item in matrix[count_0[2]]:
-            plan.append((-1) ** count * item * compute_det(get_matrix_minor(matrix, count)))
+            plan.append((-1) ** count * item * compute_det(get_matrix_minor(matrix, count,row = count_0[2])))
             count += 1
             print(plan, count, len(matrix))
         return sum(plan)
