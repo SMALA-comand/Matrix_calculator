@@ -19,9 +19,13 @@ for stroka in matrix:
 accuracy_x = []
 conditionality_y = []
 for i in range(0,15):
-    conditionality_y.append(conditionality(np.around(new_matrix, decimals=i)))
-    x = np.around(new_matrix, decimals=i)
-    print(x)
+    matrix = []
+    for stroka in new_matrix:
+        s = []
+        for el in stroka:
+            s.append(round(el,i))
+        matrix.append(s)
+    conditionality_y.append(conditionality(matrix))
     accuracy_x.append(i)
 
 
