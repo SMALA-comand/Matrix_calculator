@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="График обусловленности ( но у меня почему-то не строит :( )" />
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="График обусловленности 2.0 , округление через round" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1634133246486</updated>
-      <workItem from="1634133252320" duration="4409000" />
+      <workItem from="1634133252320" duration="4858000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил обусловленность, пока без округления">
       <created>1634133883143</created>
@@ -131,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634137004285</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="График обусловленности 2.0 , округление через round">
+      <created>1634138962728</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634138962728</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,11 +159,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавил обусловленность, пока без округления" />
     <MESSAGE value="График обусловленности ( но у меня почему-то не строит :( )" />
-    <option name="LAST_COMMIT_MESSAGE" value="График обусловленности ( но у меня почему-то не строит :( )" />
+    <MESSAGE value="График обусловленности 2.0 , округление через round" />
+    <option name="LAST_COMMIT_MESSAGE" value="График обусловленности 2.0 , округление через round" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/work_start_py$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1633695719669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$graphics_conditionality.coverage" NAME="graphics_conditionality Coverage Results" MODIFIED="1634138424768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$graphics_conditionality.coverage" NAME="graphics_conditionality Coverage Results" MODIFIED="1634138906069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/determinant_py$determinant.coverage" NAME="determinant Coverage Results" MODIFIED="1633677963890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$input_matrix.coverage" NAME="input_matrix Coverage Results" MODIFIED="1633692528004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$matrix_norms.coverage" NAME="matrix_norms Coverage Results" MODIFIED="1634130951404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
