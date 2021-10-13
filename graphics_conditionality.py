@@ -20,6 +20,8 @@ accuracy_x = []
 conditionality_y = []
 for i in range(0,15):
     conditionality_y.append(conditionality(np.around(new_matrix, decimals=i)))
+    x = np.around(new_matrix, decimals=i)
+    print(x)
     accuracy_x.append(i)
 
 
