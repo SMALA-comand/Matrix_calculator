@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Гаусс 0.0">
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Гаусс 0.1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gauss-Jorda_SofALE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gauss-Jorda_SofALE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gauss_SofALE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gauss_SofALE.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +35,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Python.Gauss-Jorda_SofALE">
-    <configuration name="Gauss-Jorda_SofALE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Gauss_SofALE">
+    <configuration name="Gauss_SofALE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -49,7 +49,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gauss-Jorda_SofALE.py" />
+      <option name="SCRIPT_NAME" value="D:\Projects\Matrix_calculator\Gauss_SofALE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,7 +126,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Gauss-Jorda_SofALE" />
+        <item itemvalue="Python.Gauss_SofALE" />
         <item itemvalue="Python.graphics_conditionality" />
         <item itemvalue="Python.conditionality_matrix" />
         <item itemvalue="Python.matrix_norms" />
@@ -142,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1634133246486</updated>
       <workItem from="1634133252320" duration="5111000" />
-      <workItem from="1634742597740" duration="7679000" />
+      <workItem from="1634742597740" duration="9400000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил обусловленность, пока без округления">
       <created>1634133883143</created>
@@ -172,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634755358684</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Гаусс 0.1.0">
+      <created>1634761929114</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634761929114</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +202,8 @@
     <MESSAGE value="График обусловленности ( но у меня почему-то не строит :( )" />
     <MESSAGE value="График обусловленности 2.0 , округление через round" />
     <MESSAGE value="Гаусс 0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Гаусс 0.0" />
+    <MESSAGE value="Гаусс 0.1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Гаусс 0.1.0" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/work_start_py$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1633695719669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -206,6 +214,6 @@
     <SUITE FILE_PATH="coverage/work_start_py$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634130979245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$Compare_det.coverage" NAME="Compare_det Coverage Results" MODIFIED="1633691221498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634135420554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_Jorda_SofALE.coverage" NAME="Gauss-Jorda_SofALE Coverage Results" MODIFIED="1634761809229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_Jorda_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1634763495115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
