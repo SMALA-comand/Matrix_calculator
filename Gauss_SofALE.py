@@ -25,15 +25,22 @@ def solve_gauss(m):
     for k in range(n - 1):
         find_max_row(m, k)
         for i in range(k + 1, n):
-            div = m[i][k] / m[k][k]
-            m[i][-1] -= div * m[k][-1]
-            for j in range(k, n):
-                m[i][j] -= div * m[k][j]
+            if m[k][k] != 0:
+                div = m[i][k] / m[k][k]
+                m[i][-1] -= div * m[k][-1]
+                for j in range(k, n):
+                    m[i][j] -= div * m[k][j]
+
 
     # Проверяем, имеет ли система конечное число решений
-    if is_singular(m):
-        print('Система имеет бесконечное количество решений ¯\_(ツ)_/¯ ')
-        return
+    if np.sum(m[:][:]) == 0:
+        return m[:][1]
+    if m[-2][:-1] == m[-1][:-1]:
+        x = 'Система не имеет решений ¯\_(ツ)_/¯ '
+        return x
+    elif is_singular(m):
+        x = 'Система имеет бесконечное количество решений '
+        return x
 
     # Обратный ход
     x = [0 for i in range(n)]
@@ -63,15 +70,21 @@ def solve_gauss_fractions(m):
     for k in range(n - 1):
         find_max_row(m, k)
         for i in range(k + 1, n):
-            div = Fraction(Fraction(m[i][k]).limit_denominator(10**9), Fraction(m[k][k]).limit_denominator(10**9))
-            m[i][-1] -= div * m[k][-1]
-            for j in range(k, n):
-                m[i][j] -= div * m[k][j]
+            if m[k][k] != 0:
+                div = Fraction(Fraction(m[i][k]).limit_denominator(10**9), Fraction(m[k][k]).limit_denominator(10**9))
+                m[i][-1] -= div * m[k][-1]
+                for j in range(k, n):
+                    m[i][j] -= div * m[k][j]
 
     # Проверяем, имеет ли система конечное число решений
-    if is_singular(m):
-        print('Система имеет бесконечное количество решений ¯\_(ツ)_/¯ ')
-        return
+    if np.sum(m[:][:]) == 0:
+        return m[:][1]
+    if m[-2][:-1] == m[-1][:-1]:
+        x = 'Система не имеет решений ¯\_(ツ)_/¯ '
+        return x
+    elif is_singular(m):
+        x = 'Система имеет бесконечное количество решений '
+        return x
 
     # Обратный ход
     x = [0 for i in range(n)]
@@ -81,5 +94,6 @@ def solve_gauss_fractions(m):
     return x
 
 if __name__ == '__main__':
-    print(solve_gauss_fractions(m = [[2.6,-1.7,2.5,3.7],[1.5,6.2,-2.9,3.2],[2.8,-1.7,3.8,2.8]]))
+    #print(solve_gauss_fractions(m = [[2.6,-1.7,2.5,3.7],[1.5,6.2,-2.9,3.2],[2.8,-1.7,3.8,2.8]]))
     #print(solve_gauss_fractions(m = [[1,2,3,6],[2,3,1,6],[3,1,2,6]]))
+    print(solve_gauss_fractions(m=[[0, 0, 0, 1], [0, 0, 0,0], [0, 0, 0, 0]]))
