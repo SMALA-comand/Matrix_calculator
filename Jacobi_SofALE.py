@@ -22,7 +22,7 @@ def solve_jacobi(m, acc=10**(-6)):
         if count == 1001:
             print('Больше тысячи интераций, переходим к Гауссу')
             #solve_gauss(matrix)
-            return solve_gauss(matrix)
+            return x_prev
         for i in range(len(m)):
             dif = 0
             k = 0
@@ -30,10 +30,10 @@ def solve_jacobi(m, acc=10**(-6)):
                 if el != m[i][i]:
                     dif -= el*x_prev[k]
                 k += 1
-            x_new.append((x_right[i]-dif)/m[i][i])
+            x_new.append((x_right[i]+dif)/m[i][i])
         x_prev = x_new
         delta = max(abs(max(x_prev) - min(x_new)), abs(max(x_new) - min(x_prev)))
-
+    return x_prev
 
 if __name__ == '__main__':
     print(solve_jacobi(m = [[2.6,-1.7,2.5,3.7],[1.5,6.2,-2.9,3.2],[2.8,-1.7,3.8,2.8]]))
