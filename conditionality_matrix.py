@@ -11,7 +11,7 @@ def conditionality(matrix):
     # Считаем обратную матрицу с помощью numpy.linalg.inv()
     matrix_reverse = np.linalg.inv(matrix)
     # Теперь находим обусловленность (я взял третий способ нахождения, нужно ли рассматривать все???)
-    cond = second_norm(matrix) * second_norm(matrix_reverse)
+    cond = first_norm(matrix) * first_norm(matrix_reverse)
     return cond
 
 if __name__ == '__main__':

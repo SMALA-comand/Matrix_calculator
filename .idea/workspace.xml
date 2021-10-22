@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="0.1.2 - Якоби готовый, только точность не доделана">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conditionality_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/conditionality_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +167,7 @@
       <workItem from="1634133252320" duration="5111000" />
       <workItem from="1634742597740" duration="9453000" />
       <workItem from="1634820806921" duration="21049000" />
-      <workItem from="1634898873153" duration="998000" />
+      <workItem from="1634898873153" duration="2245000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил обусловленность, пока без округления">
       <created>1634133883143</created>
