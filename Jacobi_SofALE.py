@@ -15,12 +15,13 @@ def solve_jacobi(m, acc=10**(-6)):
     x_new = [1.0 for i in range(len(m[0]))]
     x_prev = [0.0 for i in range(len(m[0]))]
     delta = max(abs(max(x_prev) - min(x_new )),abs(max(x_new ) - min(x_prev)))
-
+    delta_prev = delta
     while delta > acc:
+        delta_prev = delta
         x_new = []
         count += 1
         if count == 1001:
-            print('Больше тысячи интераций, переходим к Гауссу')
+            #print('Больше тысячи интераций, переходим к Гауссу')
             #solve_gauss(matrix)
             return x_prev
         for i in range(len(m)):
@@ -33,6 +34,7 @@ def solve_jacobi(m, acc=10**(-6)):
             x_new.append((x_right[i]+dif)/m[i][i])
         x_prev = x_new
         delta = max(abs(max(x_prev) - min(x_new)), abs(max(x_new) - min(x_prev)))
+        difference = delta_prev - delta
     return x_prev
 
 if __name__ == '__main__':
