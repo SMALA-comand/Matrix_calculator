@@ -35,6 +35,7 @@ if __name__ == '__main__':
                        [7, 8, 9]]))
 
 # Сравнение скорости работы нашего транспонирования с numpy
+a = '''
 import numpy as np
 from matrix_generator import matrix_generator
 import time
@@ -69,4 +70,4 @@ ax.legend(loc = 'upper left')
 plt.title('Скорость выполнения функции',loc = 'center', pad = 10 )
 fig.set_figwidth(12)
 fig.set_figheight(6)
-plt.show()
+plt.show() '''

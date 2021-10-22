@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="0.1.2 - Якоби готовый, только точность не доделана">
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Обусловленность для 1 норммы">
+      <change afterPath="$PROJECT_DIR$/Compare_det.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matrix_examples.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/work_start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conditionality_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/conditionality_matrix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/determinant.py" beforeDir="false" afterPath="$PROJECT_DIR$/determinant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/input_matrix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/matrix_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transpose_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/transpose_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1zSEkJKupozRDE3ArjQMkviI38A" />
+  <component name="ProjectId" id="1zDLpHytZcsbGritk01hIUZvJPK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -29,13 +29,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Python.Jacobi_SofALE">
+  <component name="RunManager" selected="Python.work_start">
     <configuration name="Gauss_SofALE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -49,7 +47,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\Projects\Matrix_calculator\Gauss_SofALE.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gauss_SofALE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -80,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="conditionality_matrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="determinant" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -93,7 +91,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/conditionality_matrix.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/determinant.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -102,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="graphics_conditionality" type="PythonConfigurationType" factoryName="Python" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+    <configuration name="work_start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -115,29 +113,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graphics_conditionality.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="matrix_norms" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Артём\AppData\Local\Microsoft\WindowsApps\python3.8.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matrix_norms.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/work_start.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,155 +124,44 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.work_start" />
         <item itemvalue="Python.Jacobi_SofALE" />
+        <item itemvalue="Python.determinant" />
         <item itemvalue="Python.Gauss_SofALE" />
-        <item itemvalue="Python.graphics_conditionality" />
-        <item itemvalue="Python.conditionality_matrix" />
-        <item itemvalue="Python.matrix_norms" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Подправили работу с коплекснными числами" />
-      <created>1634133246486</created>
+      <changelist id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="" />
+      <created>1633677903323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1634133246486</updated>
-      <workItem from="1634133252320" duration="5111000" />
-      <workItem from="1634742597740" duration="9453000" />
-      <workItem from="1634820806921" duration="21049000" />
-      <workItem from="1634898873153" duration="2245000" />
+      <updated>1633677903323</updated>
+      <workItem from="1633677907439" duration="229000" />
     </task>
-    <task id="LOCAL-00001" summary="Добавил обусловленность, пока без округления">
-      <created>1634133883143</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1634133883143</updated>
-    </task>
-    <task id="LOCAL-00002" summary="График обусловленности ( но у меня почему-то не строит :( )">
-      <created>1634137004285</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1634137004285</updated>
-    </task>
-    <task id="LOCAL-00003" summary="График обусловленности 2.0 , округление через round">
-      <created>1634138962728</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1634138962728</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Гаусс 0.0">
-      <created>1634755358684</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1634755358684</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Гаусс 0.1.0">
-      <created>1634761929114</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1634761929114</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Гаусс 0.2.0 - Добавлен Гаусс с вычислениями правильных дробей">
-      <created>1634763600427</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1634763600427</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Гаусс 0.2.2 - Подправил ошибки, вроде теперь выводит верно, если нет решений">
-      <created>1634826971793</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1634826971793</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Гаусс 0.2.3 - Подправил ошибки, вроде теперь выводит верно, если нет решений">
-      <created>1634830865957</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1634830865957</updated>
-    </task>
-    <task id="LOCAL-00009" summary="0.0.0 - Якоби">
-      <created>1634832619934</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1634832619934</updated>
-    </task>
-    <task id="LOCAL-00010" summary="0.1.0 - Якоби готовый, только точность не доделана">
-      <created>1634852764637</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1634852764637</updated>
-    </task>
-    <task id="LOCAL-00011" summary="0.1.1 - Якоби готовый, только точность не доделана">
-      <created>1634853273072</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1634853273072</updated>
-    </task>
-    <task id="LOCAL-00012" summary="0.1.2 - Якоби готовый, только точность не доделана">
-      <created>1634899654710</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1634899654710</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил обусловленность, пока без округления" />
-    <MESSAGE value="График обусловленности ( но у меня почему-то не строит :( )" />
-    <MESSAGE value="График обусловленности 2.0 , округление через round" />
-    <MESSAGE value="Гаусс 0.0" />
-    <MESSAGE value="Гаусс 0.1.0" />
-    <MESSAGE value="Гаусс 0.2.0 - Добавлен Гаусс с вычислениями правильных дробей" />
-    <MESSAGE value="Гаусс 0.2.2 - Подправил ошибки, вроде теперь выводит верно, если нет решений" />
-    <MESSAGE value="Гаусс 0.2.3 - Подправил ошибки, вроде теперь выводит верно, если нет решений" />
-    <MESSAGE value="0.0.0 - Якоби" />
-    <MESSAGE value="0.1.0 - Якоби готовый, только точность не доделана" />
-    <MESSAGE value="0.1.1 - Якоби готовый, только точность не доделана" />
-    <MESSAGE value="0.1.2 - Якоби готовый, только точность не доделана" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.2 - Якоби готовый, только точность не доделана" />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/work_start_py$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1633695719669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$graphics_conditionality.coverage" NAME="graphics_conditionality Coverage Results" MODIFIED="1634139100827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/work_start_py$matrix_norms.coverage" NAME="matrix_norms Coverage Results" MODIFIED="1634130951404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/work_start_py$Compare_det.coverage" NAME="Compare_det Coverage Results" MODIFIED="1633691221498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/work_start_py$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1633695719669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/determinant_py$determinant.coverage" NAME="determinant Coverage Results" MODIFIED="1633677963890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$input_matrix.coverage" NAME="input_matrix Coverage Results" MODIFIED="1633692528004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/work_start_py$matrix_norms.coverage" NAME="matrix_norms Coverage Results" MODIFIED="1634130951404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$Jacobi_SofALE.coverage" NAME="Jacobi_SofALE Coverage Results" MODIFIED="1634899557262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$Jacobi_SofALE.coverage" NAME="Jacobi_SofALE Coverage Results" MODIFIED="1634904834934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1634905220585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634130979245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/work_start_py$Compare_det.coverage" NAME="Compare_det Coverage Results" MODIFIED="1633691221498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634135420554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$determinant.coverage" NAME="determinant Coverage Results" MODIFIED="1634904539216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_Jorda_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1634763495115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1634845042766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1634903972016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

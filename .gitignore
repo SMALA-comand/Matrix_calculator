@@ -127,7 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.idea/workspace.xml
-*.xml
-*.xml
-.idea/workspace.xml
+rand_matrix.csv
