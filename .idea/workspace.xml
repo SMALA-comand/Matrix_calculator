@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="0.1.1 - Якоби готовый, только точность не доделана" />
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="0.1.2 - Якоби готовый, только точность не доделана">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,6 +167,7 @@
       <workItem from="1634133252320" duration="5111000" />
       <workItem from="1634742597740" duration="9453000" />
       <workItem from="1634820806921" duration="21049000" />
+      <workItem from="1634898873153" duration="998000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил обусловленность, пока без округления">
       <created>1634133883143</created>
@@ -242,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634853273072</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="0.1.2 - Якоби готовый, только точность не доделана">
+      <created>1634899654710</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1634899654710</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +283,8 @@
     <MESSAGE value="0.0.0 - Якоби" />
     <MESSAGE value="0.1.0 - Якоби готовый, только точность не доделана" />
     <MESSAGE value="0.1.1 - Якоби готовый, только точность не доделана" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.1 - Якоби готовый, только точность не доделана" />
+    <MESSAGE value="0.1.2 - Якоби готовый, только точность не доделана" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.1.2 - Якоби готовый, только точность не доделана" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/work_start_py$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1633695719669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -280,7 +292,7 @@
     <SUITE FILE_PATH="coverage/determinant_py$determinant.coverage" NAME="determinant Coverage Results" MODIFIED="1633677963890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$input_matrix.coverage" NAME="input_matrix Coverage Results" MODIFIED="1633692528004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$matrix_norms.coverage" NAME="matrix_norms Coverage Results" MODIFIED="1634130951404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$Jacobi_SofALE.coverage" NAME="Jacobi_SofALE Coverage Results" MODIFIED="1634853260645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$Jacobi_SofALE.coverage" NAME="Jacobi_SofALE Coverage Results" MODIFIED="1634899557262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634130979245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$Compare_det.coverage" NAME="Compare_det Coverage Results" MODIFIED="1633691221498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634135420554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
