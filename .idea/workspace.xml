@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Обусловленность для 1 норммы">
-      <change afterPath="$PROJECT_DIR$/Compare_det.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrix_examples.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/work_start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/determinant.py" beforeDir="false" afterPath="$PROJECT_DIR$/determinant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/input_matrix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/matrix_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transpose_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/transpose_matrix.py" afterDir="false" />
-    </list>
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Доделано на паре 22.10.21 15:26" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,13 +131,34 @@
       <updated>1633677903323</updated>
       <workItem from="1633677907439" duration="229000" />
     </task>
+    <task id="LOCAL-00001" summary="Доделано на паре 22.10.21 15:26">
+      <created>1634905635091</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634905635091</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Доделано на паре 22.10.21 15:26" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доделано на паре 22.10.21 15:26" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Matrix_calculator$graphics_conditionality.coverage" NAME="graphics_conditionality Coverage Results" MODIFIED="1634139100827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
