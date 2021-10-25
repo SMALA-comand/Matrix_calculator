@@ -1,3 +1,5 @@
+# pip install sympy - НАДО ввести в консоль и установить !!!
+
 import numpy as np
 from numpy import linalg as LA
 from matrix_generator import matrix_generator
@@ -17,23 +19,25 @@ def comparison(matrix):
     M = Matrix(matrix)
     system = A, b = M[:, :-1], M[:, -1]
     alfa = []
+    alfa1 = []
     for i in range(1,len(matrix)+1):
         alfa.append('x'+str(i))
     for el in alfa:
         el = symbols(str(el))
-    linsolve(system,alfa)
-    return LA.det(a)
+        alfa1.append(el)
+    return linsolve(system,alfa1)
 
 
-for i in range(1, 10):
-    m = matrix_generator(i, i)
+
+for i in range(2, 10):
+    m = matrix_generator(i, i+1)
     time_start = time.time()
     b = comparison(m)  # Sympy
     elapsed_time = time.time() - time_start
     time_np.append(elapsed_time)
 
     time_start = time.time()
-    a = jacobi_solve(m)  # Наше решение СЛАУ
+    a = solve_jacobi(m)  # Наше решение СЛАУ
     elapsed_time = time.time() - time_start
     time_our.append(elapsed_time)
 

@@ -1,5 +1,6 @@
 # Метод Якоби
 from Gauss_SofALE import solve_gauss
+from Gauss_SofALE import solve_gauss_fractions
 import numpy as np
 
 def solve_jacobi(m, acc=10**(-7)):
