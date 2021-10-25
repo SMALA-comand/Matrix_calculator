@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Доделано на паре 22.10.21 15:26" />
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Доделано на паре 22.10.21 15:26">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gauss_SofALE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gauss_SofALE.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +133,7 @@
       <option name="presentableId" value="Default" />
       <updated>1633677903323</updated>
       <workItem from="1633677907439" duration="229000" />
+      <workItem from="1635170743008" duration="1135000" />
     </task>
     <task id="LOCAL-00001" summary="Доделано на паре 22.10.21 15:26">
       <created>1634905635091</created>
