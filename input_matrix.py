@@ -7,6 +7,7 @@ from Gauss_SofALE import *
 from Jacobi_SofALE import *
 import numpy as np
 
+
 class Int(int):
     def __init__(self, number):
         int.__init__(self)
@@ -372,7 +373,7 @@ def input_expression(t=1):
         return matrix.det
 
     elif t == 4:
-        # детерминант
+        # обусловленность матрицы
         typ = None
         while typ is None:
             try:
@@ -414,9 +415,8 @@ def input_expression(t=1):
 
         return conditionality(np.array(matrix))
 
-
     elif t == 5:
-        # детерминант
+        # решение СЛАУ
         typ = None
         while typ is None:
             try:
@@ -456,15 +456,14 @@ def input_expression(t=1):
                 row.append(el)
             matrix.append(row)
 
-
         matrix = np.array(matrix)
         num = conditionality(matrix[:,:-1])
         if num < 100:
             result = solve_jacobi(matrix)
         elif 100 <= num < 1000:
-            result =  solve_gauss(matrix)
+            result = solve_gauss(matrix)
         else:
-            result =  solve_gauss_fractions(matrix)
-        print('A= ', matrix,'\n', 'A^(-1) = ', np.linalg.inv(matrix[:,:-1]),'\n', 'X= ', result,'\n', 'Обусловленность = ', num)
+            result = solve_gauss_fractions(matrix)
+        print('A= ', matrix, '\n', 'A^(-1) = ', np.linalg.inv(matrix[:, :-1]), '\n', 'X= ', result, '\n', 'Обусловленность = ', num)
 
 

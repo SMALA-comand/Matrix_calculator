@@ -20,13 +20,12 @@ def comparison(matrix):
     system = A, b = M[:, :-1], M[:, -1]
     alfa = []
     alfa1 = []
-    for i in range(1,len(matrix)+1):
+    for i in range(1, len(matrix)+1):
         alfa.append('x'+str(i))
     for el in alfa:
         el = symbols(str(el))
         alfa1.append(el)
-    return linsolve(system,alfa1)
-
+    return linsolve(system, alfa1)
 
 
 for i in range(2, 10):

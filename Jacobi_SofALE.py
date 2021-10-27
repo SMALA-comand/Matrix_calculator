@@ -3,7 +3,8 @@ from Gauss_SofALE import solve_gauss
 from Gauss_SofALE import solve_gauss_fractions
 import numpy as np
 
-def solve_jacobi(m, acc=10**(-7)):
+
+def solve_jacobi(m, acc=10 ** (-7)):
     """
     :param m: Исходная матрица
     :param acc: Точность вычислений у метода Якоби
@@ -12,7 +13,7 @@ def solve_jacobi(m, acc=10**(-7)):
     m = np.array(matrix)
     x_right = m[:, -1]
     m = m[:, :-1]
-    count = 0     # Кол-во интераций (если больше тысячи, то переходим к Гауссу)
+    count = 0  # Кол-во интераций (если больше тысячи, то переходим к Гауссу)
     x_new = [1.0 for i in range(len(m[0]))]
     x_prev = [0.0 for i in range(len(m[0]))]
     delta = 1
@@ -40,9 +41,9 @@ def solve_jacobi(m, acc=10**(-7)):
             k = 0
             for el in m[i]:
                 if el != m[i][i]:
-                    dif -= el*x_prev[k]
+                    dif -= el * x_prev[k]
                 k += 1
-            x_new.append((x_right[i]+dif)/m[i][i])
+            x_new.append((x_right[i] + dif) / m[i][i])
 
         flag = is_need_to_complete(x_prev, x_new, acc)
         if flag:
@@ -50,6 +51,7 @@ def solve_jacobi(m, acc=10**(-7)):
         x_prev = x_new
 
     return x_prev
+
 
 def is_need_to_complete(x_prev, x_new, acc):
     """
@@ -62,7 +64,8 @@ def is_need_to_complete(x_prev, x_new, acc):
     for k in range(len(x_prev)):
         sum_up += (x_new[k] - x_prev[k]) ** 2
         sum_low += (x_new[k]) ** 2
-    return ((sum_up / sum_low)**0.5) < acc
+    return ((sum_up / sum_low) ** 0.5) < acc
+
 
 if __name__ == '__main__':
-    print(solve_jacobi(m = [[2.6,-1.7,2.5,3.7],[1.5,6.2,-2.9,3.2],[2.8,-1.7,3.8,2.8]]))
+    print(solve_jacobi(m=[[2.6, -1.7, 2.5, 3.7], [1.5, 6.2, -2.9, 3.2], [2.8, -1.7, 3.8, 2.8]]))

@@ -18,6 +18,7 @@ def infinity_norm(matrix):
         s.append(summa)
     return max(s)
 
+
 def first_norm(matrix):
     """
         :param matrix: матрица, для которой мы будем считать норму
@@ -30,6 +31,7 @@ def first_norm(matrix):
             summa += abs(el)
         s.append(summa)
     return max(s)
+
 
 def second_norm(matrix):
     """
