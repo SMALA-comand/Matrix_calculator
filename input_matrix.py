@@ -1,8 +1,11 @@
 from transpose_matrix import transposing
 from matrix_generator import matrix_generator
 from determinant import compute_det
-from matrix_examples import *
-
+#from matrix_examples import *
+from conditionality_matrix import *
+from Gauss_SofALE import *
+from Jacobi_SofALE import *
+import numpy as np
 
 class Int(int):
     def __init__(self, number):
@@ -346,6 +349,11 @@ def input_expression(t=1):
                         el = el.replace('i', 'j')
                         el = complex(el)
                     elif 'j' in el:
+                        s_t = el.split(' ')
+
+                        prom = el[:el.find('j') + 1]
+                        if prom != el:
+                            el = s_t[2] + s_t[1] + s_t[0]
                         el = complex(el)
                     elif el.isdigit():
                         el = int(el)
@@ -362,3 +370,101 @@ def input_expression(t=1):
 
         matrix = Matrix(n, n, matrix)
         return matrix.det
+
+    elif t == 4:
+        # детерминант
+        typ = None
+        while typ is None:
+            try:
+                n = int(input('Введите кол-во строк матрицы: '))
+            except ValueError:
+                print('Введите корректные данные')
+                continue
+            typ = True
+
+        matrix = []
+        for i in range(n):
+            row = []
+            for j in range(n):
+                flag = False
+                while not flag:
+                    el = input(f'Введите элемент ({i}, {j}): ')
+                    if 'i' in el:
+                        el = el.replace('i', 'j')
+                        el = complex(el)
+                    elif 'j' in el:
+                        s_t = el.split(' ')
+
+                        prom = el[:el.find('j') + 1]
+                        if prom != el:
+                            el = s_t[2] + s_t[1] + s_t[0]
+                        el = complex(el)
+                    elif el.isdigit():
+                        el = int(el)
+                    else:
+                        try:
+                            float(el)
+                        except ValueError:
+                            continue
+                        else:
+                            el = float(el)
+                    flag = True
+                row.append(el)
+            matrix.append(row)
+
+        return conditionality(np.array(matrix))
+
+
+    elif t == 5:
+        # детерминант
+        typ = None
+        while typ is None:
+            try:
+                n = int(input('Введите кол-во строк матрицы: '))
+            except ValueError:
+                print('Введите корректные данные')
+                continue
+            typ = True
+        print('Введите данные с учётом столбца коэфициентов')
+        matrix = []
+        for i in range(n):
+            row = []
+            for j in range(n + 1):
+                flag = False
+                while not flag:
+                    el = input(f'Введите элемент ({i}, {j}): ')
+                    if 'i' in el:
+                        el = el.replace('i', 'j')
+                        el = complex(el)
+                    elif 'j' in el:
+                        s_t = el.split(' ')
+
+                        prom = el[:el.find('j') + 1]
+                        if prom != el:
+                            el = s_t[2] + s_t[1] + s_t[0]
+                        el = complex(el)
+                    elif el.isdigit():
+                        el = int(el)
+                    else:
+                        try:
+                            float(el)
+                        except ValueError:
+                            continue
+                        else:
+                            el = float(el)
+                    flag = True
+                row.append(el)
+            matrix.append(row)
+
+
+        matrix = np.array(matrix)
+        num = conditionality(matrix[:,:-1])
+        if num < 100:
+            result = solve_jacobi(matrix)
+        elif 100 <= num < 1000:
+            result =  solve_gauss(matrix)
+        else:
+            result =  solve_gauss_fractions(matrix)
+        print('A= ', matrix,'\n', 'A^(-1) = ', np.linalg.inv(matrix[:,:-1]),'\n', 'X= ', result,'\n', 'Обусловленность = ', num)
+
+

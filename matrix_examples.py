@@ -20,11 +20,11 @@ def give_example():
             dict[(m, n)] = transposing(dict[(n, m)])
 
     # print(dict)
-    print('Введите необходимое количество строк(n):')
-    n = int(input())
-    print('Введите необходимое количество строк(m):')
-    m = int(input())
+    #print('Введите необходимое количество строк(n):')
+    #n = int(input())
+    #print('Введите необходимое количество строк(m):')
+   # m = int(input())
 
-    return(dict[(n, m)])
+    #return(dict[(n, m)])
 
 

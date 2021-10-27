@@ -1,4 +1,6 @@
-from conditionality_matrix import conditionality
+# Я взял конкретную матрицу (другие варианты слишком сложные на мой взгляд)
+# И построил для неё график обусловленности от точности знаков после запятой
+from  conditionality_matrix import conditionality
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -34,3 +36,6 @@ plt.title('Обусловленность от точности знаков п�
 fig.set_figwidth(12)
 fig.set_figheight(6)
 plt.show()
+
+
+
