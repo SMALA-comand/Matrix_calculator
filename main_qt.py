@@ -4,12 +4,13 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import *
 from determinant import compute_det
 from transpose_matrix import transposing
+from conditionality_matrix import conditionality
 
 
 class App(QMainWindow):
     d = []
     t = []
-    o = []
+    c = []
     s = []
 
     def __init__(self):
@@ -17,6 +18,7 @@ class App(QMainWindow):
         self.plane = uic.loadUi('calc_ui.ui')
         self.determinant()
         self.transp()
+        self.cond()
         self.plane.show()
 
     def otrisovka(self, n1, n2, mode):
@@ -35,8 +37,16 @@ class App(QMainWindow):
             for i in self.t:
                 i.hide()
             self.t.clear()
+        if self.c and mode == 'c':
+            self.c.pop()
+            self.c.pop()
+            for i in self.c:
+                i.hide()
+            self.c.clear()
+
         ds = []
         ts = []
+        cs = []
         input_text = n1*n2
         for i in range(0, input_text):
             if mode == 'd':
@@ -45,6 +55,9 @@ class App(QMainWindow):
             elif mode == 't':
                 line = QLineEdit(f'input{i}{i}', self.plane.tab2)
                 ts.append(line)
+            elif mode == 'c':
+                line = QLineEdit(f'input{i}{i}{i}', self.plane.tab4)
+                cs.append(line)
             line.resize(70, 30)
             line.setText('')
             line.setPlaceholderText('5')
@@ -53,6 +66,8 @@ class App(QMainWindow):
         self.d.extend(ds)
         self.t.extend(ts)
         self.t.extend([n1, n2])
+        self.c.extend(cs)
+        self.c.extend([n1, n2])
 
     def true_input(self):
         self.plane.label_3.setText('Наличие ошибок:')
@@ -110,6 +125,37 @@ class App(QMainWindow):
     def transp(self):
         self.plane.pushButton_3.clicked.connect(self.true_input_trans)
         self.plane.pushButton_4.clicked.connect(self.compute_trans)
+
+    def true_input_cond(self):
+        self.plane.label_7.setText('Наличие ошибок:')
+        text = self.plane.lineEdit_3.displayText()
+        if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2].isdigit():
+            number1 = int(text[0])
+            number2 = int(text[2])
+            self.otrisovka(number1, number2, mode='c')
+        elif len(text) == 1 and (2 <= int(text) <= 9):
+            self.otrisovka(int(text), int(text), mode='c')
+        else:
+            self.plane.label_7.setText('Наличие ошибок: ошибка ввода')
+
+    def compute_cond(self):
+        matrix = []
+        n2 = self.c[-1]
+        n1 = self.c[-2]
+        for i in range(n1):
+            matrix.append([])
+            lines = self.c[i * n2:i * n2 + n2]
+            for j in range(n2):
+                matrix[i].append(int(lines[j].displayText()))
+        ans = conditionality(matrix)
+        if type(ans) == 'str' and 'S' in ans:
+            self.plane.label_4.setText(f'Ответ: {ans}')
+        else:
+            self.plane.label_4.setText(f'Ответ: {round(ans, 3)}')
+
+    def cond(self):
+        self.plane.pushButton_5.clicked.connect(self.true_input_cond)
+        self.plane.pushButton_6.clicked.connect(self.compute_cond)
 
 
 if __name__ == '__main__':
