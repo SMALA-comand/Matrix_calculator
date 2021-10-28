@@ -15,4 +15,7 @@ def conditionality(matrix):
     return cond
 
 if __name__ == '__main__':
-    print(conditionality(matrix=[[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]]))
+    #print(conditionality(matrix=[[10, 2, 5, 60], [7, 9, 0, 78], [15, 22, 65, 111], [50, 100, 17, 33]]))
+    print(conditionality(matrix=[[2.6, -1.7, 2.5], [1.5, 6.2, -2.9], [2.8, -1.7, 3.8]]))
+
+
