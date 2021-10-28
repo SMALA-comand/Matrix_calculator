@@ -19,23 +19,29 @@ class App(QMainWindow):
             for i in self.d:
                 i.hide()
         ds = []
-        input_text = n
-        one_side = int(math.sqrt(input_text))
-        for i in range(0, n):
+        input_text = n**2
+        one_side = n
+        for i in range(0, input_text):
             line = QLineEdit(f'input{i}', self.plane.tab3)
             line.resize(70, 30)
             line.setText('')
             line.setPlaceholderText('5')
-            line.move(20 + (i % one_side) * 70, 100 + 30 * (i // one_side))
+            line.move(20 + (i % one_side) * 70, 140 + 30 * (i // one_side))
             line.show()
             ds.append(line)
         self.d.extend(ds)
 
     def true_input(self):
-        if self.plane.lineEdit.displayText() == '':
-            print('bbc')
-        else:
+        self.plane.label_3.setText('Наличие ошибок:')
+        text = self.plane.lineEdit.displayText()
+        if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2] == text[0]:
+            number = self.plane.lineEdit.displayText()[0]
+            number = int(number)
+            self.otrisovka(number)
+        elif len(text) == 1 and (2 <= int(text) <= 9):
             self.otrisovka(int(self.plane.lineEdit.displayText()))
+        else:
+            self.plane.label_3.setText('Наличие ошибок: ошибка ввода')
 
     def compute_determ(self):
         matrix = []
