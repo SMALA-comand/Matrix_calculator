@@ -41,13 +41,68 @@
       <height>500</height>
      </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
       <string>Матричное выражение</string>
      </attribute>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: magenta;</string>
+      </property>
+      <property name="text">
+       <string>Введите матричное выражение</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>50</y>
+        <width>351</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: magenta;</string>
+      </property>
+      <property name="text">
+       <string>Размер матрицы &quot;А&quot;</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>100</y>
+        <width>351</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab2">
      <attribute name="title">
@@ -110,9 +165,15 @@
        <rect>
         <x>20</x>
         <y>98</y>
-        <width>211</width>
+        <width>221</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>Наличие ошибок: </string>
@@ -264,9 +325,15 @@
        <rect>
         <x>20</x>
         <y>98</y>
-        <width>211</width>
+        <width>221</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>Наличие ошибок: </string>
@@ -339,9 +406,15 @@
        <rect>
         <x>20</x>
         <y>98</y>
-        <width>211</width>
+        <width>221</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>Наличие ошибок: </string>
@@ -488,9 +561,15 @@
        <rect>
         <x>20</x>
         <y>98</y>
-        <width>211</width>
+        <width>221</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>Наличие ошибок: </string>
