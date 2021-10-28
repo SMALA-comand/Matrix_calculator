@@ -12,6 +12,7 @@ class App(QMainWindow):
         QMainWindow.__init__(self)
         self.plane = uic.loadUi('calc_ui.ui')
         self.determinant()
+        self.transp()
         self.plane.show()
 
     def otrisovka(self, n):
@@ -57,6 +58,19 @@ class App(QMainWindow):
     def determinant(self):
         self.plane.pushButton.clicked.connect(self.true_input)
         self.plane.pushButton_2.clicked.connect(self.compute_determ)
+
+    def otrisovka_trans(self):
+        pass
+
+    def true_input_trans(self):
+        pass
+
+    def compute_trans(self):
+        pass
+
+    def transp(self):
+        self.plane.pushButton_3.clicked.connect(self.true_input_trans)
+        self.plane.pushButton_4.clicked.connect(self.compute_trans)
 
 
 if __name__ == '__main__':
