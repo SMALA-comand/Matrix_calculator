@@ -1,3 +1,4 @@
+import math
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
@@ -8,7 +9,11 @@ from Jacobi_SofALE import solve_jacobi
 
 
 class App(QMainWindow):
-    d = t = c = s = ans_for_s = []
+    d = []
+    t = []
+    c = []
+    s = []
+    ans_for_s = []
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -51,8 +56,12 @@ class App(QMainWindow):
                 i.hide()
             self.ans_for_s.clear()
 
-        ds = ts = cs = ss = []
-        for i in range(0, n1*n2):
+        ds = []
+        ts = []
+        cs = []
+        ss = []
+        input_text = n1 * n2
+        for i in range(0, input_text):
             if mode == 'd':
                 line = QLineEdit(f'input{i}', self.plane.tab3)
                 ds.append(line)
@@ -67,7 +76,7 @@ class App(QMainWindow):
                 ss.append(line)
             line.resize(70, 30)
             line.setText('')
-            line.setPlaceholderText(f'{i}')
+            line.setPlaceholderText('5')
             line.move(20 + (i % n2) * 70, 140 + 30 * (i // n2))
             line.show()
         self.d.extend(ds)
@@ -91,10 +100,10 @@ class App(QMainWindow):
 
     def compute_determ(self):
         matrix = []
-        a = int(len(self.d)**0.5)
+        a = int(len(self.d) ** 0.5)
         for i in range(a):
             matrix.append([])
-            lines = self.d[i*a:i*a+a]
+            lines = self.d[i * a:i * a + a]
             for j in range(a):
                 matrix[i].append(int(lines[j].displayText()))
         ans = compute_det(matrix=matrix)
@@ -187,16 +196,19 @@ class App(QMainWindow):
             lines = self.s[i * n2:i * n2 + n2]
             for j in range(n2):
                 matrix[i].append(int(lines[j].displayText()))
+        print(matrix)
         ans = solve_jacobi(matrix)
+        print(ans[1])
         if type(ans) == 'str':
             self.plane.label_11.setText(f'Ответ: {ans}')
         else:
+            print('dxcv')
             row = len(matrix)
             for i in range(row):
                 line = QLineEdit(f'input0{i}', self.plane.tab5)
                 line.resize(70, 30)
                 line.setText(str(round(ans[i], 3)))
-                line.move(20 + (row+1) * 70, 140 + 30 * i)
+                line.move(20 + (row + 1) * 70, 140 + 30 * i)
                 line.show()
                 self.ans_for_s.append(line)
 
@@ -209,3 +221,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
     app.exec_()
+
