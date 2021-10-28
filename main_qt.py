@@ -15,6 +15,9 @@ class App(QMainWindow):
         self.plane.show()
 
     def otrisovka(self, n):
+        if self.d:
+            for i in self.d:
+                i.hide()
         ds = []
         input_text = n
         one_side = int(math.sqrt(input_text))
@@ -26,7 +29,7 @@ class App(QMainWindow):
             line.move(20 + (i % one_side) * 70, 100 + 30 * (i // one_side))
             line.show()
             ds.append(line)
-        self.d = ds
+        self.d.extend(ds)
 
     def true_input(self):
         if self.plane.lineEdit.displayText() == '':
@@ -42,7 +45,8 @@ class App(QMainWindow):
             lines = self.d[i*a:i*a+a]
             for j in range(a):
                 matrix[i].append(int(lines[j].displayText()))
-        print(compute_det(matrix=matrix))
+        ans = compute_det(matrix=matrix)
+        self.plane.label_2.setText(f'Ответ: {ans}')
 
     def determinant(self):
         self.plane.pushButton.clicked.connect(self.true_input)
