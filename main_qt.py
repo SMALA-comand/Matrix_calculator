@@ -1,7 +1,7 @@
 import math
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication
 from determinant import compute_det
 from transpose_matrix import transposing
 from conditionality_matrix import conditionality
@@ -76,7 +76,7 @@ class App(QMainWindow):
                 ss.append(line)
             line.resize(70, 30)
             line.setText('')
-            line.setPlaceholderText('5')
+            line.setPlaceholderText(f'{i}')
             line.move(20 + (i % n2) * 70, 140 + 30 * (i // n2))
             line.show()
         self.d.extend(ds)
@@ -89,14 +89,16 @@ class App(QMainWindow):
 
     def true_input(self):
         self.plane.label_3.setText('Наличие ошибок:')
+        self.plane.label_3.setStyleSheet('background: green;')
         text = self.plane.lineEdit.displayText()
         if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2] == text[0]:
             number = int(text[0])
             self.otrisovka(number, number, mode='d')
-        elif len(text) == 1 and (2 <= int(text) <= 9):
+        elif len(text) == 1 and text.isdigit() and (2 <= int(text) <= 9):
             self.otrisovka(int(text), int(text), mode='d')
         else:
             self.plane.label_3.setText('Наличие ошибок: ошибка ввода')
+            self.plane.label_3.setStyleSheet('background: red;')
 
     def compute_determ(self):
         matrix = []
@@ -115,15 +117,17 @@ class App(QMainWindow):
 
     def true_input_trans(self):
         self.plane.label_6.setText('Наличие ошибок:')
+        self.plane.label_6.setStyleSheet('background: green;')
         text = self.plane.lineEdit_2.displayText()
         if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2].isdigit():
             number1 = int(text[0])
             number2 = int(text[2])
             self.otrisovka(number1, number2, mode='t')
-        elif len(text) == 1 and (2 <= int(text) <= 9):
+        elif len(text) == 1 and text.isdigit() and (2 <= int(text) <= 9):
             self.otrisovka(int(text), int(text), mode='t')
         else:
             self.plane.label_6.setText('Наличие ошибок: ошибка ввода')
+            self.plane.label_6.setStyleSheet('background: red;')
 
     def compute_trans(self):
         matrix = []
@@ -146,15 +150,17 @@ class App(QMainWindow):
 
     def true_input_cond(self):
         self.plane.label_7.setText('Наличие ошибок:')
+        self.plane.label_7.setStyleSheet('background: green;')
         text = self.plane.lineEdit_3.displayText()
         if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2].isdigit():
             number1 = int(text[0])
             number2 = int(text[2])
             self.otrisovka(number1, number2, mode='c')
-        elif len(text) == 1 and (2 <= int(text) <= 9):
+        elif len(text) == 1 and text.isdigit() and (2 <= int(text) <= 9):
             self.otrisovka(int(text), int(text), mode='c')
         else:
             self.plane.label_7.setText('Наличие ошибок: ошибка ввода')
+            self.plane.label_7.setStyleSheet('background: red;')
 
     def compute_cond(self):
         matrix = []
@@ -177,15 +183,17 @@ class App(QMainWindow):
 
     def true_input_slau(self):
         self.plane.label_10.setText('Наличие ошибок:')
+        self.plane.label_10.setStyleSheet('background: green;')
         text = self.plane.lineEdit_4.displayText()
         if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2].isdigit():
             number1 = int(text[0])
             number2 = int(text[2])
             self.otrisovka(number1, number2, mode='s')
-        elif len(text) == 1 and (2 <= int(text) <= 9):
+        elif len(text) == 1 and text.isdigit() and (2 <= int(text) <= 9):
             self.otrisovka(int(text), int(text), mode='s')
         else:
             self.plane.label_10.setText('Наличие ошибок: ошибка ввода')
+            self.plane.label_10.setStyleSheet('background: red;')
 
     def compute_slau(self):
         matrix = []
