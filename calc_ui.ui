@@ -120,6 +120,22 @@
        <string>Ввести матрицу</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>60</y>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Определитель</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab4">
      <attribute name="title">
