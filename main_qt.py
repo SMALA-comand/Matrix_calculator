@@ -3,10 +3,14 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 from determinant import compute_det
+from transpose_matrix import transposing
 
 
 class App(QMainWindow):
     d = []
+    t = []
+    o = []
+    s = []
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -15,32 +19,49 @@ class App(QMainWindow):
         self.transp()
         self.plane.show()
 
-    def otrisovka(self, n):
-        if self.d:
+    def otrisovka(self, n1, n2, mode):
+        """
+        :param n1: колво строк
+        :param n2: колво столбцов
+        :return:
+        """
+        if self.d and mode == 'd':
             for i in self.d:
                 i.hide()
+            self.d.clear()
+        if self.t and mode == 't':
+            self.t.pop()
+            self.t.pop()
+            for i in self.t:
+                i.hide()
+            self.t.clear()
         ds = []
-        input_text = n**2
-        one_side = n
+        ts = []
+        input_text = n1*n2
         for i in range(0, input_text):
-            line = QLineEdit(f'input{i}', self.plane.tab3)
+            if mode == 'd':
+                line = QLineEdit(f'input{i}', self.plane.tab3)
+                ds.append(line)
+            elif mode == 't':
+                line = QLineEdit(f'input{i}{i}', self.plane.tab2)
+                ts.append(line)
             line.resize(70, 30)
             line.setText('')
             line.setPlaceholderText('5')
-            line.move(20 + (i % one_side) * 70, 140 + 30 * (i // one_side))
+            line.move(20 + (i % n2) * 70, 140 + 30 * (i // n2))
             line.show()
-            ds.append(line)
         self.d.extend(ds)
+        self.t.extend(ts)
+        self.t.extend([n1, n2])
 
     def true_input(self):
         self.plane.label_3.setText('Наличие ошибок:')
         text = self.plane.lineEdit.displayText()
         if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2] == text[0]:
-            number = self.plane.lineEdit.displayText()[0]
-            number = int(number)
-            self.otrisovka(number)
+            number = int(text[0])
+            self.otrisovka(number, number, mode='d')
         elif len(text) == 1 and (2 <= int(text) <= 9):
-            self.otrisovka(int(self.plane.lineEdit.displayText()))
+            self.otrisovka(int(text), int(text), mode='d')
         else:
             self.plane.label_3.setText('Наличие ошибок: ошибка ввода')
 
@@ -59,14 +80,32 @@ class App(QMainWindow):
         self.plane.pushButton.clicked.connect(self.true_input)
         self.plane.pushButton_2.clicked.connect(self.compute_determ)
 
-    def otrisovka_trans(self):
-        pass
-
     def true_input_trans(self):
-        pass
+        self.plane.label_6.setText('Наличие ошибок:')
+        text = self.plane.lineEdit_2.displayText()
+        if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2].isdigit():
+            number1 = int(text[0])
+            number2 = int(text[2])
+            self.otrisovka(number1, number2, mode='t')
+        elif len(text) == 1 and (2 <= int(text) <= 9):
+            self.otrisovka(int(text), int(text), mode='t')
+        else:
+            self.plane.label_6.setText('Наличие ошибок: ошибка ввода')
 
     def compute_trans(self):
-        pass
+        matrix = []
+        n2 = self.t[-1]
+        n1 = self.t[-2]
+        for i in range(n1):
+            matrix.append([])
+            lines = self.t[i * n2:i * n2 + n2]
+            for j in range(n2):
+                matrix[i].append(int(lines[j].displayText()))
+        ans = transposing(mat=matrix)
+        for i in range(n1):
+            lines = self.t[i * n2:i * n2 + n2]
+            for j in range(n2):
+                lines[j].setText(str(ans[i][j]))
 
     def transp(self):
         self.plane.pushButton_3.clicked.connect(self.true_input_trans)
