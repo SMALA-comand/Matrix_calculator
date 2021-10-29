@@ -7,7 +7,8 @@ from determinant import compute_det
 from transpose_matrix import transposing
 from conditionality_matrix import conditionality
 from Jacobi_SofALE import solve_jacobi
-from input_matrix import Matrix
+from input_matrix import *
+from copy import deepcopy
 from input_for_qt import get_list
 
 
@@ -18,8 +19,11 @@ class App(QMainWindow):
     s = []
     ans_for_s = []
     e = []
-    #flag = False
     listt = []
+    main_list = []
+    letterss = []
+    main_text = ''
+    flag = False
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -431,7 +435,10 @@ class App(QMainWindow):
         if text != '':
             list_of_mat, new_text = get_list(text)
             self.listt = list_of_mat
+            self.main_list = deepcopy(list_of_mat)
+            self.main_text = new_text
             if list_of_mat:
+                print('первый вызов', self.listt)
                 self.nnext(self.listt.pop())
             else:
                 self.plane.label_14.setText('Наличие ошибок: ошибка в выражении')
@@ -464,19 +471,49 @@ class App(QMainWindow):
             self.plane.label_14.setText('Наличие ошибок: нет ячеек')
             self.plane.label_14.setStyleSheet('background: red;')
         else:
-            matrix = []
-            let = self.e[-1]
-            n2 = self.e[-2]
-            n1 = self.e[-3]
-            for i in range(n1):
-                matrix.append([])
-                lines = self.e[i * n2:i * n2 + n2]
-                for j in range(n2):
-                    matrix[i].append(float(lines[j].displayText()))
-            exec(f'{let} = Matrix({n1}, {n2}, {matrix})')
-            exec(f'print({let}.matrix)')
-            if self.listt:
-                self.nnext(self.listt.pop())
+            if not self.flag:
+                matrix = []
+                let = self.e[-1]
+                n2 = self.e[-2]
+                n1 = self.e[-3]
+                for i in range(n1):
+                    matrix.append([])
+                    lines = self.e[i * n2:i * n2 + n2]
+                    for j in range(n2):
+                        matrix[i].append(float(lines[j].displayText()))
+                exec(f'{let} = Matrix({n1}, {n2}, {matrix})')
+                exec(f'self.letterss.append({let})')
+                print(self.letterss)
+                exec(f'print("Матрица {let}", {let}.matrix)')
+                if self.listt:
+                    self.nnext(self.listt.pop())
+                else:
+                    if not self.flag:
+                        diction = {}
+                        count = 0
+                        for i in self.main_list[::-1]:
+                            diction[i] = self.letterss[count]
+                            count += 1
+                        print(self.letterss)
+                        new_t = ''
+                        for i in self.main_text:
+                            if i.isalpha():
+                                new_t += f'diction["{i}"]'
+                            else:
+                                new_t += i
+                        print(new_t)
+                        print(diction)
+                        print('ewsdfbd')
+                        ans = eval(new_t).matrix
+                        print(ans)
+                        self.flag = True
+                        self.otrisovka(len(ans), len(ans[0]), mode='e')
+                        for i in range(len(ans)):
+                            lines = self.e[i*len(ans[0]): i*len(ans[0]) + len(ans[0])]
+                            for j in range(len(ans[0])):
+                                lines[j].setText(str(ans[i][j]))
+                    else:
+                        pass
 
     def matrix_exp(self):
         self.plane.pushButton_22.clicked.connect(self.true_input_exp)
