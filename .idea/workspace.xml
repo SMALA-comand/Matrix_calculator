@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="Сравнение Якоби с Sympy">
+    <list default="true" id="314d38f8-b4d6-4762-850e-d1c9e62a35d8" name="Changes" comment="ghjcnj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jacobi_SofALE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jacobi_SofALE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compare_SofALE.py" beforeDir="false" afterPath="$PROJECT_DIR$/compare_SofALE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gauss_SofALE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gauss_SofALE.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Python.compare_SofALE">
+  <component name="RunManager" selected="Python.Gauss_SofALE">
     <configuration name="Gauss_SofALE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="determinant" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="conditionality_matrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -114,7 +113,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/determinant.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/conditionality_matrix.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Gauss_SofALE" />
+        <item itemvalue="Python.conditionality_matrix" />
         <item itemvalue="Python.compare_SofALE" />
         <item itemvalue="Python.Jacobi_SofALE" />
         <item itemvalue="Python.work_start" />
-        <item itemvalue="Python.determinant" />
-        <item itemvalue="Python.Gauss_SofALE" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +163,9 @@
       <option name="presentableId" value="Default" />
       <updated>1633677903323</updated>
       <workItem from="1633677907439" duration="229000" />
-      <workItem from="1635170743008" duration="16689000" />
+      <workItem from="1635170743008" duration="16774000" />
+      <workItem from="1635419858456" duration="1756000" />
+      <workItem from="1635502925021" duration="2105000" />
     </task>
     <task id="LOCAL-00001" summary="Доделано на паре 22.10.21 15:26">
       <created>1634905635091</created>
@@ -194,7 +195,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635186702066</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавил график сравнения СЛАУ">
+      <created>1635188014346</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1635188014346</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ghjcnj">
+      <created>1635422676487</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635422676487</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +232,9 @@
     <MESSAGE value="+ Обратная матрица через Гаусса" />
     <MESSAGE value="Наконец-то рабочий Якоби!" />
     <MESSAGE value="Сравнение Якоби с Sympy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сравнение Якоби с Sympy" />
+    <MESSAGE value="Добавил график сравнения СЛАУ" />
+    <MESSAGE value="ghjcnj" />
+    <option name="LAST_COMMIT_MESSAGE" value="ghjcnj" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Matrix_calculator$graphics_conditionality.coverage" NAME="graphics_conditionality Coverage Results" MODIFIED="1634139100827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -229,10 +246,10 @@
     <SUITE FILE_PATH="coverage/Matrix_calculator$Jacobi_SofALE.coverage" NAME="Jacobi_SofALE Coverage Results" MODIFIED="1635186708932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$work_start.coverage" NAME="work_start Coverage Results" MODIFIED="1635172436274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/work_start_py$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634130979245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1634135420554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$determinant.coverage" NAME="determinant Coverage Results" MODIFIED="1634904539216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$compare_SofALE.coverage" NAME="compare_SofALE Coverage Results" MODIFIED="1635187963976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$conditionality_matrix.coverage" NAME="conditionality_matrix Coverage Results" MODIFIED="1635421152093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_Jorda_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1634763495115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1634903972016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Matrix_calculator$Gauss_SofALE.coverage" NAME="Gauss_SofALE Coverage Results" MODIFIED="1635503240644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
