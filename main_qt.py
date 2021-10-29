@@ -18,6 +18,8 @@ class App(QMainWindow):
     s = []
     ans_for_s = []
     e = []
+    #flag = False
+    listt = []
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -428,17 +430,20 @@ class App(QMainWindow):
         text = self.plane.lineEdit_5.displayText()
         if text != '':
             list_of_mat, new_text = get_list(text)
+            self.listt = list_of_mat
             if list_of_mat:
-                for i in list_of_mat:
-                    self.plane.label_13.setText(f'Размер матрицы "{i}"')
-                    self.plane.pushButton_21.clicked.connect(self.true_input_matrix_for_exp)
-                    self.plane.pushButton_23.clicked.connect(self.get_inter)
+                self.nnext(self.listt.pop())
             else:
                 self.plane.label_14.setText('Наличие ошибок: ошибка в выражении')
                 self.plane.label_14.setStyleSheet('background: red;')
         else:
             self.plane.label_14.setText('Наличие ошибок: нет выражения')
             self.plane.label_14.setStyleSheet('background: red;')
+
+    def nnext(self, n):
+        self.plane.label_13.setText(f'Размер матрицы "{n}"')
+        self.plane.pushButton_21.clicked.connect(self.true_input_matrix_for_exp)
+        self.plane.pushButton_23.clicked.connect(self.get_inter)
 
     def true_input_matrix_for_exp(self):
         self.plane.label_14.setText('Наличие ошибок:')
@@ -470,6 +475,8 @@ class App(QMainWindow):
                     matrix[i].append(float(lines[j].displayText()))
             exec(f'{let} = Matrix({n1}, {n2}, {matrix})')
             exec(f'print({let}.matrix)')
+            if self.listt:
+                self.nnext(self.listt.pop())
 
     def matrix_exp(self):
         self.plane.pushButton_22.clicked.connect(self.true_input_exp)
