@@ -1,7 +1,8 @@
 import sys
+import csv
 import random
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication
+from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QFileDialog
 from determinant import compute_det
 from transpose_matrix import transposing
 from conditionality_matrix import conditionality
@@ -88,6 +89,8 @@ class App(QMainWindow):
         self.s.extend(ss)
         self.s.extend([n1, n2])
 
+    # -------------------------
+
     def true_input(self):
         self.plane.label_3.setText('Наличие ошибок:')
         self.plane.label_3.setStyleSheet('background: green;')
@@ -126,10 +129,39 @@ class App(QMainWindow):
             self.plane.label_3.setText('Наличие ошибок: нет ячеек')
             self.plane.label_3.setStyleSheet('background: red;')
 
+    def csv_determinant(self):
+        file_name, _ = QFileDialog.getOpenFileName(self.plane, '', 'Choose file', 'CSV files (*.csv)')
+        if len(file_name) > 0 and file_name != 'Choose file':
+            self.plane.lineEdit_8.setText(file_name)
+
+    def use_csv_det(self):
+        if self.d:
+            if self.plane.lineEdit_8.displayText() != '':
+                n = int(len(self.d) ** 0.5)
+                with open(self.plane.lineEdit_8.displayText()) as f:
+                    reader = csv.reader(f)
+                    matrix = []
+                    for line in reader:
+                        l = line[0].split(';')
+                        matrix.append(l)
+                    for i in range(0, n):
+                        for j in range(0, n):
+                            self.d[i*n+j].setText(matrix[i][j])
+            else:
+                self.plane.label_3.setText('Наличие ошибок: не указан путь')
+                self.plane.label_3.setStyleSheet('background: red;')
+        else:
+            self.plane.label_3.setText('Наличие ошибок: нет ячеек')
+            self.plane.label_3.setStyleSheet('background: red;')
+
     def determinant(self):
         self.plane.pushButton.clicked.connect(self.true_input)
         self.plane.pushButton_2.clicked.connect(self.compute_determ)
         self.plane.pushButton_10.clicked.connect(self.random_det)
+        self.plane.pushButton_16.clicked.connect(self.csv_determinant)
+        self.plane.pushButton_15.clicked.connect(self.use_csv_det)
+
+    # -------------------------
 
     def true_input_trans(self):
         self.plane.label_6.setText('Наличие ошибок:')
@@ -175,10 +207,42 @@ class App(QMainWindow):
             self.plane.label_6.setText('Наличие ошибок: нет ячеек')
             self.plane.label_6.setStyleSheet('background: red;')
 
+    def csv_trans(self):
+        file_name, _ = QFileDialog.getOpenFileName(self.plane, '', 'Choose file', 'CSV files (*.csv)')
+        if len(file_name) > 0 and file_name != 'Choose file':
+            self.plane.lineEdit_7.setText(file_name)
+
+    def use_csv_trans(self):
+        if self.t:
+            if self.plane.lineEdit_7.displayText() != '':
+                n1 = self.t[-2]
+                n2 = self.t[-1]
+                with open(self.plane.lineEdit_7.displayText()) as f:
+                    reader = csv.reader(f)
+                    matrix = []
+                    for line in reader:
+                        l = line[0].split(';')
+                        matrix.append(l)
+
+                    for i in range(0, n1):
+                        for j in range(0, n2):
+                            self.t[i*n2+j].setText(matrix[i][j])
+
+            else:
+                self.plane.label_6.setText('Наличие ошибок: не указан путь')
+                self.plane.label_6.setStyleSheet('background: red;')
+        else:
+            self.plane.label_6.setText('Наличие ошибок: нет ячеек')
+            self.plane.label_6.setStyleSheet('background: red;')
+
     def transp(self):
         self.plane.pushButton_3.clicked.connect(self.true_input_trans)
         self.plane.pushButton_4.clicked.connect(self.compute_trans)
         self.plane.pushButton_9.clicked.connect(self.random_trans)
+        self.plane.pushButton_13.clicked.connect(self.csv_trans)
+        self.plane.pushButton_14.clicked.connect(self.use_csv_trans)
+
+    # -------------------------
 
     def true_input_cond(self):
         self.plane.label_7.setText('Наличие ошибок:')
@@ -223,10 +287,40 @@ class App(QMainWindow):
             self.plane.label_7.setText('Наличие ошибок: нет ячеек')
             self.plane.label_7.setStyleSheet('background: red;')
 
+    def csv_cond(self):
+        file_name, _ = QFileDialog.getOpenFileName(self.plane, '', 'Choose file', 'CSV files (*.csv)')
+        if len(file_name) > 0 and file_name != 'Choose file':
+            self.plane.lineEdit_9.setText(file_name)
+
+    def use_csv_cond(self):
+        if self.c:
+            if self.plane.lineEdit_9.displayText() != '':
+                n1 = self.c[-2]
+                n2 = self.c[-1]
+                with open(self.plane.lineEdit_9.displayText()) as f:
+                    reader = csv.reader(f)
+                    matrix = []
+                    for line in reader:
+                        l = line[0].split(';')
+                        matrix.append(l)
+                    for i in range(0, n1):
+                        for j in range(0, n2):
+                            self.c[i*n2+j].setText(matrix[i][j])
+            else:
+                self.plane.label_7.setText('Наличие ошибок: не указан путь')
+                self.plane.label_7.setStyleSheet('background: red;')
+        else:
+            self.plane.label_7.setText('Наличие ошибок: нет ячеек')
+            self.plane.label_7.setStyleSheet('background: red;')
+
     def cond(self):
         self.plane.pushButton_5.clicked.connect(self.true_input_cond)
         self.plane.pushButton_6.clicked.connect(self.compute_cond)
         self.plane.pushButton_11.clicked.connect(self.random_cond)
+        self.plane.pushButton_17.clicked.connect(self.csv_cond)
+        self.plane.pushButton_18.clicked.connect(self.use_csv_cond)
+
+    # -------------------------
 
     def true_input_slau(self):
         self.plane.label_10.setText('Наличие ошибок:')
@@ -276,10 +370,38 @@ class App(QMainWindow):
             self.plane.label_10.setText('Наличие ошибок: нет ячеек')
             self.plane.label_10.setStyleSheet('background: red;')
 
+    def csv_slau(self):
+        file_name, _ = QFileDialog.getOpenFileName(self.plane, '', 'Choose file', 'CSV files (*.csv)')
+        if len(file_name) > 0 and file_name != 'Choose file':
+            self.plane.lineEdit_10.setText(file_name)
+
+    def use_csv_slau(self):
+        if self.s:
+            if self.plane.lineEdit_10.displayText() != '':
+                n1 = self.s[-2]
+                n2 = self.s[-1]
+                with open(self.plane.lineEdit_10.displayText()) as f:
+                    reader = csv.reader(f)
+                    matrix = []
+                    for line in reader:
+                        l = line[0].split(';')
+                        matrix.append(l)
+                    for i in range(0, n1):
+                        for j in range(0, n2):
+                            self.s[i*n2+j].setText(matrix[i][j])
+            else:
+                self.plane.label_10.setText('Наличие ошибок: не указан путь')
+                self.plane.label_10.setStyleSheet('background: red;')
+        else:
+            self.plane.label_10.setText('Наличие ошибок: нет ячеек')
+            self.plane.label_10.setStyleSheet('background: red;')
+
     def slau(self):
         self.plane.pushButton_7.clicked.connect(self.true_input_slau)
         self.plane.pushButton_8.clicked.connect(self.compute_slau)
         self.plane.pushButton_12.clicked.connect(self.random_slau)
+        self.plane.pushButton_20.clicked.connect(self.csv_slau)
+        self.plane.pushButton_19.clicked.connect(self.use_csv_slau)
 
 
 if __name__ == '__main__':
