@@ -45,7 +45,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
@@ -211,6 +211,22 @@
        <string>Транспонировать</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>58</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Рандомизатор</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab3">
      <attribute name="title">
@@ -304,14 +320,14 @@
       <property name="geometry">
        <rect>
         <x>480</x>
-        <y>42</y>
-        <width>171</width>
+        <y>43</y>
+        <width>200</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
@@ -337,6 +353,22 @@
       </property>
       <property name="text">
        <string>Наличие ошибок: </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>86</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Рандомизатор</string>
       </property>
      </widget>
     </widget>
@@ -450,21 +482,37 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>80</y>
-        <width>311</width>
+        <x>480</x>
+        <y>43</y>
+        <width>400</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="text">
        <string>Ответ: </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>86</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Рандомизатор</string>
       </property>
      </widget>
     </widget>
@@ -528,7 +576,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Максимальный размер 7х7</string>
+       <string>Максимальный размер 7х8</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_4">
@@ -580,7 +628,7 @@
        <rect>
         <x>480</x>
         <y>43</y>
-        <width>311</width>
+        <width>400</width>
         <height>51</height>
        </rect>
       </property>
@@ -593,6 +641,22 @@
       </property>
       <property name="text">
        <string>Ответ: </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>86</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Рандомизатор</string>
       </property>
      </widget>
     </widget>
