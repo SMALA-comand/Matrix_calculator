@@ -182,9 +182,9 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>215</x>
         <y>58</y>
-        <width>101</width>
+        <width>131</width>
         <height>22</height>
        </rect>
       </property>
@@ -198,7 +198,7 @@
      <widget class="QPushButton" name="pushButton_4">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>355</x>
         <y>58</y>
         <width>131</width>
         <height>22</height>
@@ -214,7 +214,7 @@
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
        <rect>
-        <x>480</x>
+        <x>495</x>
         <y>58</y>
         <width>131</width>
         <height>22</height>
@@ -225,6 +225,48 @@
       </property>
       <property name="text">
        <string>Рандомизатор</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_13">
+      <property name="geometry">
+       <rect>
+        <x>215</x>
+        <y>86</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Выбрать CSV</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>355</x>
+        <y>86</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_14">
+      <property name="geometry">
+       <rect>
+        <x>495</x>
+        <y>86</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Использовать CSV</string>
       </property>
      </widget>
     </widget>
@@ -287,9 +329,9 @@
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>215</x>
         <y>58</y>
-        <width>101</width>
+        <width>115</width>
         <height>22</height>
        </rect>
       </property>
@@ -371,6 +413,48 @@
        <string>Рандомизатор</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_15">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Использовать CSV</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_8">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_16">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Выбрать CSV</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab4">
      <attribute name="title">
@@ -404,9 +488,9 @@
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>215</x>
         <y>58</y>
-        <width>101</width>
+        <width>115</width>
         <height>22</height>
        </rect>
       </property>
@@ -515,6 +599,48 @@
        <string>Рандомизатор</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Выбрать CSV</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_9">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Использовать CSV</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab5">
      <attribute name="title">
@@ -523,9 +649,9 @@
      <widget class="QPushButton" name="pushButton_7">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>215</x>
         <y>58</y>
-        <width>101</width>
+        <width>115</width>
         <height>22</height>
        </rect>
       </property>
@@ -657,6 +783,48 @@
       </property>
       <property name="text">
        <string>Рандомизатор</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_19">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Использовать CSV</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_20">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Выбрать CSV</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_10">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>20</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
       </property>
      </widget>
     </widget>
