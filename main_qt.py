@@ -486,6 +486,7 @@ class App(QMainWindow):
                 print(self.letterss)
                 exec(f'print("Матрица {let}", {let}.matrix)')
                 if self.listt:
+                    print('Второй вызов', self.listt)
                     self.nnext(self.listt.pop())
                 else:
                     if not self.flag:
