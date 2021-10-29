@@ -1,4 +1,5 @@
 import  numpy as np
+from fractions import Fraction
 
 def find_max_row(m, col):
     """Заменим строку [col] на одну из нижележащих строк с наибольшим по модулю первым элементом.
@@ -93,46 +94,64 @@ def solve_gauss_fractions(m):
 
     return x
 
-
-def inverse_matrix(matrix_origin):
+# Обратная матрица методом Гаусса Жордана
+def inverse_matrix_gauss(matrix_origin):
     """
-    :param matrix_origin: Исходная матрица
+        :param matrix_origin: Исходная матрица
     """
+    # Склеиваем 2 матрицы: слева - первоначальная, справа - единичная
     matrix_origin = np.array(matrix_origin)
-    m = np.hstack((matrix_origin,
-                   np.matrix(np.diag([1.0 for i in range(matrix_origin.shape[0])]))))
+    n = matrix_origin.shape[0]
+    m = np.hstack((matrix_origin, np.eye(n)))
+
     # Прямой ход
-    for k in range(len(m)):
-        swap_row = pick_nonzero_row(m, k)  # Меняем местами k-строку с одной из нижележащих, если m[k, k] = 0
-        if swap_row != k:
-            m[k, :], m[swap_row, :] = m[swap_row, :], np.copy(m[k, :])
-        # Делаем диагональный элемент равным 1
-        if m[k, k] != 1:
-            m[k, :] *= 1 / m[k, k]
-        for row in range(k + 1, len(m)):
-            m[row, :] -= m[k, :] * m[row, k]
+    for nrow, row in enumerate(m):  # nrow равен номеру строки, row содержит саму строку матрицы
+        divider = row[nrow]  # диагональный элемент
+        row /= divider
+        # Теперь вычитаем приведённую строку из всех нижележащих строк
+        for lower_row in m[nrow + 1:]:
+            factor = lower_row[nrow]  # элемент строки в колонке nrow
+            lower_row -= factor * row  # Зануляем все оставшиеся элементы в колонке
 
-    # Обратный ход
-    for k in range(len(m) - 1, 0, -1):
-        for row in range(k - 1, -1, -1):
-            if m[row, k]:
-                #  Делаем все вышележащие элементы равными нулю в прежней матрице идентичности
-                m[row, :] -= m[k, :] * m[row, k]
+    # Обратный ход:
+    for k in range(n - 1, 0, -1):
+        for row_ in range(k - 1, -1, -1):
+            if m[row_, k]:
+                # Все элементы выше главной диагонали делаем равными нулю
+                m[row_, :] -= m[k, :] * m[row_, k]
+    return m[:, n:].copy()
 
-    return np.hsplit(m, len(m) // 2)[1]
-
-
-def pick_nonzero_row(m, k):
+# Обратная матрица методом Гаусса Жордана + fraction
+def inverse_matrix_gauss_fraction(matrix_origin):
+    from fractions import Fraction
     """
-    :param m: Исходная матрица
-    :param k: k-строка матрицы
+        :param matrix_origin: Исходная матрица
     """
+    # Склеиваем 2 матрицы: слева - первоначальная, справа - единичная
+    matrix_origin = np.array(matrix_origin)
+    n = matrix_origin.shape[0]
+    m = np.hstack((matrix_origin, np.eye(n)))
 
-    while k < m.shape[0] and not m[k, k]:
-        k += 1
-    return k
+    # Прямой ход
+    for nrow, row in enumerate(m):  # nrow равен номеру строки, row содержит саму строку матрицы
+        divider = row[nrow]  # диагональный элемент
+        row = Fraction(Fraction(row).limit_denominator(10 ** 9), Fraction(divider).limit_denominator(10 ** 9))
+        # Теперь вычитаем приведённую строку из всех нижележащих строк
+        for lower_row in m[nrow + 1:]:
+            factor = lower_row[nrow]  # элемент строки в колонке nrow
+            lower_row -= factor * row  # Зануляем все оставшиеся элементы в колонке
+
+    # Обратный ход:
+    for k in range(n - 1, 0, -1):
+        for row_ in range(k - 1, -1, -1):
+            if m[row_, k]:
+                # Все элементы выше главной диагонали делаем равными нулю
+                m[row_, :] -= m[k, :] * m[row_, k]
+    return m[:, n:].copy()
+
+
 
 if __name__ == '__main__':
-    print(solve_gauss_fractions(m = [[2.6,-1.7,2.5,3.7],[1.5,6.2,-2.9,3.2],[2.8,-1.7,3.8,2.8]]))
+    print(inverse_matrix_gauss([[2.6,-1.7,2.5],[1.5,6.2,-2.9],[2.8,-1.7,3.8]]))
     #print(solve_gauss_fractions(m = [[1,2,3,6],[2,3,1,6],[3,1,2,6]]))
     #print(solve_gauss_fractions(m=[[0, 0, 0, 1], [0, 0, 0,0], [0, 0, 0, 0]]))
