@@ -1,7 +1,6 @@
 from transpose_matrix import transposing
 from matrix_generator import matrix_generator
 from determinant import compute_det
-#from matrix_examples import *
 from conditionality_matrix import *
 from Gauss_SofALE import *
 from Jacobi_SofALE import *

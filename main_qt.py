@@ -7,6 +7,8 @@ from determinant import compute_det
 from transpose_matrix import transposing
 from conditionality_matrix import conditionality
 from Jacobi_SofALE import solve_jacobi
+from input_matrix import Matrix
+from input_for_qt import get_list
 
 
 class App(QMainWindow):
@@ -15,6 +17,7 @@ class App(QMainWindow):
     c = []
     s = []
     ans_for_s = []
+    e = []
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -23,9 +26,10 @@ class App(QMainWindow):
         self.transp()
         self.cond()
         self.slau()
+        self.matrix_exp()
         self.plane.show()
 
-    def otrisovka(self, n1, n2, mode):
+    def otrisovka(self, n1, n2, mode, let=None):
         """
         :param mode: для чего происходит отрисовка. d - детерминант, t - транспонирование, с - обусловленность, s - СЛАУ
         :param n1: колво строк
@@ -57,11 +61,19 @@ class App(QMainWindow):
             for i in self.ans_for_s:
                 i.hide()
             self.ans_for_s.clear()
+        if self.e and mode == 'e':
+            self.e.pop()
+            self.e.pop()
+            self.e.pop()
+            for i in self.e:
+                i.hide()
+            self.e.clear()
 
         ds = []
         ts = []
         cs = []
         ss = []
+        es = []
         input_text = n1 * n2
         for i in range(0, input_text):
             if mode == 'd':
@@ -76,6 +88,9 @@ class App(QMainWindow):
             elif mode == 's':
                 line = QLineEdit(f'input{i}{i}{i}{i}', self.plane.tab5)
                 ss.append(line)
+            elif mode == 'e':
+                line = QLineEdit(f'input{i}{i}{i}{i}{i}', self.plane.tab1)
+                es.append(line)
             line.resize(70, 30)
             line.setText('')
             line.setPlaceholderText(f'{i}')
@@ -88,6 +103,8 @@ class App(QMainWindow):
         self.c.extend([n1, n2])
         self.s.extend(ss)
         self.s.extend([n1, n2])
+        self.e.extend(es)
+        self.e.extend([n1, n2, let])
 
     # -------------------------
 
@@ -402,6 +419,60 @@ class App(QMainWindow):
         self.plane.pushButton_12.clicked.connect(self.random_slau)
         self.plane.pushButton_20.clicked.connect(self.csv_slau)
         self.plane.pushButton_19.clicked.connect(self.use_csv_slau)
+
+    # -------------------------
+
+    def true_input_exp(self):
+        self.plane.label_14.setText('Наличие ошибок:')
+        self.plane.label_14.setStyleSheet('background: green;')
+        text = self.plane.lineEdit_5.displayText()
+        if text != '':
+            list_of_mat, new_text = get_list(text)
+            if list_of_mat:
+                for i in list_of_mat:
+                    self.plane.label_13.setText(f'Размер матрицы "{i}"')
+                    self.plane.pushButton_21.clicked.connect(self.true_input_matrix_for_exp)
+                    self.plane.pushButton_23.clicked.connect(self.get_inter)
+            else:
+                self.plane.label_14.setText('Наличие ошибок: ошибка в выражении')
+                self.plane.label_14.setStyleSheet('background: red;')
+        else:
+            self.plane.label_14.setText('Наличие ошибок: нет выражения')
+            self.plane.label_14.setStyleSheet('background: red;')
+
+    def true_input_matrix_for_exp(self):
+        self.plane.label_14.setText('Наличие ошибок:')
+        self.plane.label_14.setStyleSheet('background: green;')
+        text = self.plane.lineEdit_6.displayText()
+        if len(text) == 3 and text[1] in ('x', 'х') and text[0].isdigit() and text[2].isdigit():
+            number1 = int(text[0])
+            number2 = int(text[2])
+            self.otrisovka(number1, number2, mode='e', let=self.plane.label_13.text()[-2])
+        elif len(text) == 1 and text.isdigit() and (2 <= int(text) <= 9):
+            self.otrisovka(int(text), int(text), mode='e', let=self.plane.label_13.text()[-2])
+        else:
+            self.plane.label_14.setText('Наличие ошибок: ошибка ввода')
+            self.plane.label_14.setStyleSheet('background: red;')
+
+    def get_inter(self):
+        if not self.e:
+            self.plane.label_14.setText('Наличие ошибок: нет ячеек')
+            self.plane.label_14.setStyleSheet('background: red;')
+        else:
+            matrix = []
+            let = self.e[-1]
+            n2 = self.e[-2]
+            n1 = self.e[-3]
+            for i in range(n1):
+                matrix.append([])
+                lines = self.e[i * n2:i * n2 + n2]
+                for j in range(n2):
+                    matrix[i].append(float(lines[j].displayText()))
+            exec(f'{let} = Matrix({n1}, {n2}, {matrix})')
+            exec(f'print({let}.matrix)')
+
+    def matrix_exp(self):
+        self.plane.pushButton_22.clicked.connect(self.true_input_exp)
 
 
 if __name__ == '__main__':

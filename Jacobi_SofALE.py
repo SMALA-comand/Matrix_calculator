@@ -69,4 +69,4 @@ def is_need_to_complete(x_prev, x_new, acc):
 
 if __name__ == '__main__':
     #print(solve_jacobi(m=[[2.6, -1.7, 2.5, 3.7], [1.5, 6.2, -2.9, 3.2], [2.8, -1.7, 3.8, 2.8]]))
-    print(solve_jacobi(m=[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]))
+    print(solve_jacobi(m=[[11, 1, 1, 3], [4, 5, 66, 5]]))
