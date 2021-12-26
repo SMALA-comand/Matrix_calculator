@@ -7,7 +7,7 @@ setuptools.setup(
     name="matrixcalc",
     packages=['matrixcalc'],
     version="0.0.1",
-    description='algorithms for the various matrix operations',
+    description='user-friendly calculator + algorithms of various matrix operations',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Lev Pambukhchyan",
