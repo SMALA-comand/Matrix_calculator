@@ -24,6 +24,7 @@ import time
 import sympy
 from sympy.solvers.solveset import linsolve
 
+__all__ = ['matrix_calc']
 
 
 #'1_transpose_matrix.py'
