@@ -11,7 +11,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Lev Pambukhchyan",
-    author_email="leva__leva@bk.ru",
+    author_email="leva200211@gmail.com",
     url="https://github.com/SMALA-comand/Matrix_calculator",
     install_requires=['numpy', 'sympy', 'matplotlib'],
     classifiers=[
