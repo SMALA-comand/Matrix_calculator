@@ -1,4 +1,5 @@
 # Matrix_calculator
+![Tests](https://github.com/SMALA-comand/Matrix_calculator/actions/workflows/tests.yml/badge.svg)
 
 Здесь представлено решение задания №2 "Матричный калькулятор" и задания №3 "СЛАУ" по дисциплине "Численные методы"
 
