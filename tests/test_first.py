@@ -5,15 +5,16 @@ from src.calculator.transpose_matrix import transposing
 
 
 input_matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+    [1, 2, 3, 10],
+    [4, 5, 6, 11],
+    [7, 8, 9, 12]
 ]
 
 expected_matrix = [
     [1, 4, 7],
     [2, 5, 8],
-    [3, 6, 9]
+    [3, 6, 9],
+    [10, 11, 12]
 ]
 
 
